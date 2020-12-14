@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch", //"launch",
             "program": "/Users/ccagml/Desktop/gafq/gafq",
-            "args": ["hello.gafq"],
+            "args": ["./test/hello.gafq"],
             "stopAtEntry": false, // 选为true则会在打开控制台后停滞，暂时不执行程序
             "cwd": "${workspaceFolder}",
             "environment": [],
