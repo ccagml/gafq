@@ -5,25 +5,27 @@
     "version": "0.2.0",
     "configurations": [
         {
-                "name": "(gdb) 启动", //这个应该是F1中出现的名字
-                "type": "cppdbg",
-                "request": "launch", //"launch",
-                "program": "${workspaceFolder}/gafq",
-                "args": [
-                    "./test/hello.gafq"
-                ],
-                "stopAtEntry": false, // 选为true则会在打开控制台后停滞，暂时不执行程序
-                "cwd": "${workspaceFolder}",
-                "environment": [],
-                "externalConsole": false, // 是否使用外部控制台，选false的话，我的vscode会出现错误
-                "MIMode": "gdb"
-            },
+            "name": "(gdb) 启动", //这个应该是F1中出现的名字
+            "type": "cppdbg",
+            "request": "launch", //"launch",
+            "program": "${workspaceFolder}/gafq",
+            "args": [
+                "./test/hello.gafq"
+            ],
+            "stopAtEntry": false, // 选为true则会在打开控制台后停滞，暂时不执行程序
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false, // 是否使用外部控制台，选false的话，我的vscode会出现错误
+            "MIMode": "gdb"
+        },
         {
             "name": "(lldb) 启动", //这个应该是F1中出现的名字
             "type": "cppdbg",
             "request": "launch", //"launch",
             "program": "${workspaceFolder}/gafq",
-            "args": ["./test/hello.gafq"],
+            "args": [
+                "./test/hello.gafq"
+            ],
             "stopAtEntry": false, // 选为true则会在打开控制台后停滞，暂时不执行程序
             "cwd": "${workspaceFolder}",
             "environment": [],
