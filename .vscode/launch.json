@@ -14,8 +14,7 @@
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": false, // 是否使用外部控制台，选false的话，我的vscode会出现错误
-            "MIMode": "lldb",
-            "runtimeArgs": [ "hello.gafq"]
+            "MIMode": "lldb"
         }
     ]
 }

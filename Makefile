@@ -5,7 +5,7 @@
 # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================
 
 # Your platform. See PLATS for possible values.
-PLAT= none
+PLAT= macosx
 
 CC= gcc
 
