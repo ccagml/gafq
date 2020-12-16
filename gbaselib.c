@@ -1,5 +1,5 @@
 /*
-** $Id: lbaselib.c,v 1.191.1.6 2008/02/14 16:46:22 roberto Exp $
+** $Id: gbaselib.c,v 1.191.1.6 2008/02/14 16:46:22 roberto Exp $
 ** Basic library
 ** See Copyright Notice in gafq.h
 */
@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define lbaselib_c
+#define gbaselib_c
 #define GAFQ_LIB
 
 #include "gafq.h"

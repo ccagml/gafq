@@ -15,8 +15,8 @@
 
 #include "gafq.h"
 
-#include "lapi.h"
-#include "lcode.h"
+#include "gapi.h"
+#include "gcode.h"
 #include "gdebug.h"
 #include "ldo.h"
 #include "lfunc.h"

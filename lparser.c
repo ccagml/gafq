@@ -12,7 +12,7 @@
 
 #include "gafq.h"
 
-#include "lcode.h"
+#include "gcode.h"
 #include "gdebug.h"
 #include "ldo.h"
 #include "lfunc.h"

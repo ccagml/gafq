@@ -1,5 +1,5 @@
 /*
-** $Id: lapi.c,v 2.55.1.5 2008/07/04 18:41:18 roberto Exp $
+** $Id: gapi.c,v 2.55.1.5 2008/07/04 18:41:18 roberto Exp $
 ** Gafq API
 ** See Copyright Notice in gafq.h
 */
@@ -10,12 +10,12 @@
 #include <stdarg.h>
 #include <string.h>
 
-#define lapi_c
+#define gapi_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
-#include "lapi.h"
+#include "gapi.h"
 #include "gdebug.h"
 #include "ldo.h"
 #include "lfunc.h"

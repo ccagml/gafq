@@ -1,11 +1,11 @@
 /*
-** $Id: lcode.h,v 1.48.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gcode.h,v 1.48.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Code generator for Gafq
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lcode_h
-#define lcode_h
+#ifndef gcode_h
+#define gcode_h
 
 #include "llex.h"
 #include "lobject.h"

@@ -1,5 +1,5 @@
 /*
-** $Id: lcode.c,v 2.25.1.5 2011/01/31 14:53:16 roberto Exp $
+** $Id: gcode.c,v 2.25.1.5 2011/01/31 14:53:16 roberto Exp $
 ** Code generator for Gafq
 ** See Copyright Notice in gafq.h
 */
@@ -7,12 +7,12 @@
 
 #include <stdlib.h>
 
-#define lcode_c
+#define gcode_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
-#include "lcode.h"
+#include "gcode.h"
 #include "gdebug.h"
 #include "ldo.h"
 #include "lgc.h"
