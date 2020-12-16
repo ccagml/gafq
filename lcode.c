@@ -13,7 +13,7 @@
 #include "gafq.h"
 
 #include "lcode.h"
-#include "ldebug.h"
+#include "gdebug.h"
 #include "ldo.h"
 #include "lgc.h"
 #include "llex.h"

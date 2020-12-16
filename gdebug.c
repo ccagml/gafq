@@ -1,5 +1,5 @@
 /*
-** $Id: ldebug.c,v 2.29.1.6 2008/05/08 16:56:26 roberto Exp $
+** $Id: gdebug.c,v 2.29.1.6 2008/05/08 16:56:26 roberto Exp $
 ** Debug Interface
 ** See Copyright Notice in gafq.h
 */
@@ -10,14 +10,14 @@
 #include <string.h>
 
 
-#define ldebug_c
+#define gdebug_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "lapi.h"
 #include "lcode.h"
-#include "ldebug.h"
+#include "gdebug.h"
 #include "ldo.h"
 #include "lfunc.h"
 #include "lobject.h"

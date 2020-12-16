@@ -14,7 +14,7 @@
 
 #include "gafq.h"
 
-#include "ldebug.h"
+#include "gdebug.h"
 #include "ldo.h"
 #include "lfunc.h"
 #include "lgc.h"

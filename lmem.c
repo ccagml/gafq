@@ -12,7 +12,7 @@
 
 #include "gafq.h"
 
-#include "ldebug.h"
+#include "gdebug.h"
 #include "ldo.h"
 #include "lmem.h"
 #include "lobject.h"

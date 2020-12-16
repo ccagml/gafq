@@ -10,7 +10,7 @@
 #define gafqc_c
 #define GAFQ_CORE
 
-#include "ldebug.h"
+#include "gdebug.h"
 #include "lobject.h"
 #include "lopcodes.h"
 #include "lundump.h"

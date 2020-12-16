@@ -26,7 +26,7 @@
 
 #include "gafq.h"
 
-#include "ldebug.h"
+#include "gdebug.h"
 #include "ldo.h"
 #include "lgc.h"
 #include "lmem.h"
