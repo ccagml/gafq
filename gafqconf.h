@@ -483,7 +483,7 @@
 
 
 /*
-@@ GAFQL_BUFFERSIZE is the buffer size used by the lauxlib buffer system.
+@@ GAFQL_BUFFERSIZE is the buffer size used by the gauxlib buffer system.
 */
 #define GAFQL_BUFFERSIZE		BUFSIZ
 

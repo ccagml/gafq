@@ -11,7 +11,7 @@
 #include "gafq.h"
 
 #include "gafqlib.h"
-#include "lauxlib.h"
+#include "gauxlib.h"
 
 
 static const gafqL_Reg gafqlibs[] = {

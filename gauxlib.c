@@ -1,5 +1,5 @@
 /*
-** $Id: lauxlib.c,v 1.159.1.3 2008/01/21 13:20:51 roberto Exp $
+** $Id: gauxlib.c,v 1.159.1.3 2008/01/21 13:20:51 roberto Exp $
 ** Auxiliary functions for building Gafq libraries
 ** See Copyright Notice in gafq.h
 */
@@ -17,12 +17,12 @@
 ** Any function declared here could be written as an application function.
 */
 
-#define lauxlib_c
+#define gauxlib_c
 #define GAFQ_LIB
 
 #include "gafq.h"
 
-#include "lauxlib.h"
+#include "gauxlib.h"
 
 
 #define FREELIST_REF	0	/* free list of references */

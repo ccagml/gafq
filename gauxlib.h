@@ -1,12 +1,12 @@
 /*
-** $Id: lauxlib.h,v 1.88.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gauxlib.h,v 1.88.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Auxiliary functions for building Gafq libraries
 ** See Copyright Notice in gafq.h
 */
 
 
-#ifndef lauxlib_h
-#define lauxlib_h
+#ifndef gauxlib_h
+#define gauxlib_h
 
 
 #include <stddef.h>

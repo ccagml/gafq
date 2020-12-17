@@ -14,7 +14,7 @@
 
 #include "gafq.h"
 
-#include "lauxlib.h"
+#include "gauxlib.h"
 #include "gafqlib.h"
 
 

@@ -13,7 +13,7 @@
 #define GAFQ_CORE
 
 #include "gafq.h"
-#include "lauxlib.h"
+#include "gauxlib.h"
 
 #include "ldo.h"
 #include "lfunc.h"
