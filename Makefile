@@ -29,8 +29,8 @@ GAFQ_A=	libgafq.a
 CORE_O=	gapi.o gcode.o gdebug.o gdo.o gdump.o lfunc.o lgc.o llex.o lmem.o \
 	lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o  \
 	lundump.o lvm.o lzio.o
-LIB_O=	gauxlib.o gbaselib.o gdblib.o liolib.o lmathlib.o loslib.o ltablib.o \
-	lstrlib.o loadlib.o ginit.o
+LIB_O=	gauxlib.o gbaselib.o gdblib.o giolib.o lmathlib.o loslib.o gtablib.o \
+	gstrlib.o loadlib.o ginit.o
 
 GAFQ_T=	gafq
 GAFQ_O=	gafq.o
@@ -145,7 +145,7 @@ lfunc.o: lfunc.c gafq.h gafqconf.h lfunc.h lobject.h llimits.h lgc.h lmem.h \
 lgc.o: lgc.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
   lzio.h lmem.h gdo.h lfunc.h lgc.h lstring.h ltable.h
 ginit.o: ginit.c gafq.h gafqconf.h gafqlib.h gauxlib.h
-liolib.o: liolib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
+giolib.o: giolib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 llex.o: llex.c gafq.h gafqconf.h gdo.h lobject.h llimits.h lstate.h ltm.h \
   lzio.h lmem.h llex.h lparser.h lstring.h lgc.h ltable.h
 lmathlib.o: lmathlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
@@ -163,10 +163,10 @@ lstate.o: lstate.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h \
   ltm.h lzio.h lmem.h gdo.h lfunc.h lgc.h llex.h lstring.h ltable.h
 lstring.o: lstring.c gafq.h gafqconf.h lmem.h llimits.h lobject.h lstate.h \
   ltm.h lzio.h lstring.h lgc.h
-lstrlib.o: lstrlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
+gstrlib.o: gstrlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 ltable.o: ltable.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h \
   ltm.h lzio.h lmem.h gdo.h lgc.h ltable.h
-ltablib.o: ltablib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
+gtablib.o: gtablib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 ltm.o: ltm.c gafq.h gafqconf.h lobject.h llimits.h lstate.h ltm.h lzio.h \
   lmem.h lstring.h lgc.h ltable.h
 gafq.o: gafq.c gafq.h gafqconf.h gauxlib.h gafqlib.h

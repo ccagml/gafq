@@ -1,5 +1,5 @@
 /*
-** $Id: ltablib.c,v 1.38.1.3 2008/02/14 16:46:58 roberto Exp $
+** $Id: gtablib.c,v 1.38.1.3 2008/02/14 16:46:58 roberto Exp $
 ** Library for Table Manipulation
 ** See Copyright Notice in gafq.h
 */
@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 
-#define ltablib_c
+#define gtablib_c
 #define GAFQ_LIB
 
 #include "gafq.h"

@@ -1,5 +1,5 @@
 /*
-** $Id: lstrlib.c,v 1.132.1.5 2010/05/14 15:34:19 roberto Exp $
+** $Id: gstrlib.c,v 1.132.1.5 2010/05/14 15:34:19 roberto Exp $
 ** Standard library for string operations and pattern-matching
 ** See Copyright Notice in gafq.h
 */
@@ -11,7 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define lstrlib_c
+#define gstrlib_c
 #define GAFQ_LIB
 
 #include "gafq.h"
@@ -24,7 +24,7 @@
 #define uchar(c)        ((unsigned char)(c))
 
 
-
+// 获取字符串长度
 static int str_len (gafq_State *L) {
   size_t l;
   gafqL_checklstring(L, 1, &l);
@@ -823,7 +823,7 @@ static int str_format (gafq_State *L) {
   return 1;
 }
 
-
+//注册函数
 static const gafqL_Reg strlib[] = {
   {"byte", str_byte},
   {"char", str_char},
