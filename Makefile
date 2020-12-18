@@ -30,7 +30,7 @@ CORE_O=	gapi.o gcode.o gdebug.o gdo.o gdump.o lfunc.o lgc.o llex.o lmem.o \
 	lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o  \
 	lundump.o lvm.o lzio.o
 LIB_O=	gauxlib.o gbaselib.o gdblib.o liolib.o lmathlib.o loslib.o ltablib.o \
-	lstrlib.o loadlib.o linit.o
+	lstrlib.o loadlib.o ginit.o
 
 GAFQ_T=	gafq
 GAFQ_O=	gafq.o
@@ -144,7 +144,7 @@ lfunc.o: lfunc.c gafq.h gafqconf.h lfunc.h lobject.h llimits.h lgc.h lmem.h \
   lstate.h ltm.h lzio.h
 lgc.o: lgc.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
   lzio.h lmem.h gdo.h lfunc.h lgc.h lstring.h ltable.h
-linit.o: linit.c gafq.h gafqconf.h gafqlib.h gauxlib.h
+ginit.o: ginit.c gafq.h gafqconf.h gafqlib.h gauxlib.h
 liolib.o: liolib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 llex.o: llex.c gafq.h gafqconf.h gdo.h lobject.h llimits.h lstate.h ltm.h \
   lzio.h lmem.h llex.h lparser.h lstring.h lgc.h ltable.h

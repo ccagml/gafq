@@ -1,11 +1,11 @@
 /*
-** $Id: linit.c,v 1.14.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: ginit.c,v 1.14.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Initialization of libraries for gafq.c
 ** See Copyright Notice in gafq.h
 */
 
 
-#define linit_c
+#define ginit_c
 #define GAFQ_LIB
 
 #include "gafq.h"
