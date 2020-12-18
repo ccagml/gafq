@@ -18,7 +18,7 @@
 #include "gapi.h"
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "lgc.h"
 #include "lmem.h"
 #include "lobject.h"

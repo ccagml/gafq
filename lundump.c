@@ -13,7 +13,7 @@
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "lmem.h"
 #include "lobject.h"
 #include "lstring.h"

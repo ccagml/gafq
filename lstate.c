@@ -14,7 +14,7 @@
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "lgc.h"
 #include "llex.h"
 #include "lmem.h"

@@ -19,7 +19,7 @@
 #include "gcode.h"
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "lobject.h"
 #include "lopcodes.h"
 #include "lstate.h"

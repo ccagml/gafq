@@ -1,5 +1,5 @@
 /*
-** $Id: lfunc.c,v 2.12.1.2 2007/12/28 14:58:43 roberto Exp $
+** $Id: gfunc.c,v 2.12.1.2 2007/12/28 14:58:43 roberto Exp $
 ** Auxiliary functions to manipulate prototypes and closures
 ** See Copyright Notice in gafq.h
 */
@@ -7,12 +7,12 @@
 
 #include <stddef.h>
 
-#define lfunc_c
+#define gfunc_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
-#include "lfunc.h"
+#include "gfunc.h"
 #include "lgc.h"
 #include "lmem.h"
 #include "lobject.h"
