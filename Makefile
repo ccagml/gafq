@@ -26,7 +26,7 @@ MYLIBS=
 PLATS= aix ansi bsd freebsd generic linux macosx mingw posix solaris
 
 GAFQ_A=	libgafq.a
-CORE_O=	gapi.o gcode.o gdebug.o gdo.o ldump.o lfunc.o lgc.o llex.o lmem.o \
+CORE_O=	gapi.o gcode.o gdebug.o gdo.o gdump.o lfunc.o lgc.o llex.o lmem.o \
 	lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o  \
 	lundump.o lvm.o lzio.o
 LIB_O=	gauxlib.o gbaselib.o gdblib.o liolib.o lmathlib.o loslib.o ltablib.o \
@@ -138,7 +138,7 @@ gdebug.o: gdebug.c gafq.h gafqconf.h gapi.h lobject.h llimits.h gcode.h \
 gdo.o: gdo.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
   lzio.h lmem.h gdo.h lfunc.h lgc.h lopcodes.h lparser.h lstring.h \
   ltable.h lundump.h lvm.h
-ldump.o: ldump.c gafq.h gafqconf.h lobject.h llimits.h lstate.h ltm.h \
+gdump.o: gdump.c gafq.h gafqconf.h lobject.h llimits.h lstate.h ltm.h \
   lzio.h lmem.h lundump.h
 lfunc.o: lfunc.c gafq.h gafqconf.h lfunc.h lobject.h llimits.h lgc.h lmem.h \
   lstate.h ltm.h lzio.h

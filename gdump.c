@@ -1,12 +1,12 @@
 /*
-** $Id: ldump.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gdump.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
 ** save precompiled Gafq chunks
 ** See Copyright Notice in gafq.h
 */
 
 #include <stddef.h>
 
-#define ldump_c
+#define gdump_c
 #define GAFQ_CORE
 
 #include "gafq.h"

@@ -16,7 +16,7 @@ GAFQI_FUNC Proto* gafqU_undump (gafq_State* L, ZIO* Z, Mbuffer* buff, const char
 /* make header; from lundump.c */
 GAFQI_FUNC void gafqU_header (char* h);
 
-/* dump one chunk; from ldump.c */
+/* dump one chunk; from gdump.c */
 GAFQI_FUNC int gafqU_dump (gafq_State* L, const Proto* f, gafq_Writer w, void* data, int strip);
 
 #ifdef gafqc_c
