@@ -8,7 +8,7 @@
 #define lvm_h
 
 
-#include "ldo.h"
+#include "gdo.h"
 #include "lobject.h"
 #include "ltm.h"
 

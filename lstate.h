@@ -15,7 +15,7 @@
 
 
 
-struct gafq_longjmp;  /* defined in ldo.c */
+struct gafq_longjmp;  /* defined in gdo.c */
 
 
 /* table of globals */

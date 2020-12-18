@@ -26,10 +26,10 @@ MYLIBS=
 PLATS= aix ansi bsd freebsd generic linux macosx mingw posix solaris
 
 GAFQ_A=	libgafq.a
-CORE_O=	gapi.o gcode.o gdebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o \
+CORE_O=	gapi.o gcode.o gdebug.o gdo.o ldump.o lfunc.o lgc.o llex.o lmem.o \
 	lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o  \
 	lundump.o lvm.o lzio.o
-LIB_O=	gauxlib.o gbaselib.o ldblib.o liolib.o lmathlib.o loslib.o ltablib.o \
+LIB_O=	gauxlib.o gbaselib.o gdblib.o liolib.o lmathlib.o loslib.o ltablib.o \
 	lstrlib.o loadlib.o linit.o
 
 GAFQ_T=	gafq
@@ -124,59 +124,59 @@ solaris:
 # DO NOT DELETE
 
 gapi.o: gapi.c gafq.h gafqconf.h gapi.h lobject.h llimits.h gdebug.h \
-  lstate.h ltm.h lzio.h lmem.h ldo.h lfunc.h lgc.h lstring.h ltable.h \
+  lstate.h ltm.h lzio.h lmem.h gdo.h lfunc.h lgc.h lstring.h ltable.h \
   lundump.h lvm.h
 gauxlib.o: gauxlib.c gafq.h gafqconf.h gauxlib.h
 gbaselib.o: gbaselib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 gcode.o: gcode.c gafq.h gafqconf.h gcode.h llex.h lobject.h llimits.h \
-  lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h ldo.h lgc.h \
+  lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h gdo.h lgc.h \
   ltable.h
-ldblib.o: ldblib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
+gdblib.o: gdblib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 gdebug.o: gdebug.c gafq.h gafqconf.h gapi.h lobject.h llimits.h gcode.h \
-  llex.h lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h ldo.h \
+  llex.h lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h gdo.h \
   lfunc.h lstring.h lgc.h ltable.h lvm.h
-ldo.o: ldo.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
-  lzio.h lmem.h ldo.h lfunc.h lgc.h lopcodes.h lparser.h lstring.h \
+gdo.o: gdo.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
+  lzio.h lmem.h gdo.h lfunc.h lgc.h lopcodes.h lparser.h lstring.h \
   ltable.h lundump.h lvm.h
 ldump.o: ldump.c gafq.h gafqconf.h lobject.h llimits.h lstate.h ltm.h \
   lzio.h lmem.h lundump.h
 lfunc.o: lfunc.c gafq.h gafqconf.h lfunc.h lobject.h llimits.h lgc.h lmem.h \
   lstate.h ltm.h lzio.h
 lgc.o: lgc.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
-  lzio.h lmem.h ldo.h lfunc.h lgc.h lstring.h ltable.h
+  lzio.h lmem.h gdo.h lfunc.h lgc.h lstring.h ltable.h
 linit.o: linit.c gafq.h gafqconf.h gafqlib.h gauxlib.h
 liolib.o: liolib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
-llex.o: llex.c gafq.h gafqconf.h ldo.h lobject.h llimits.h lstate.h ltm.h \
+llex.o: llex.c gafq.h gafqconf.h gdo.h lobject.h llimits.h lstate.h ltm.h \
   lzio.h lmem.h llex.h lparser.h lstring.h lgc.h ltable.h
 lmathlib.o: lmathlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 lmem.o: lmem.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h \
-  ltm.h lzio.h lmem.h ldo.h
+  ltm.h lzio.h lmem.h gdo.h
 loadlib.o: loadlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
-lobject.o: lobject.c gafq.h gafqconf.h ldo.h lobject.h llimits.h lstate.h \
+lobject.o: lobject.c gafq.h gafqconf.h gdo.h lobject.h llimits.h lstate.h \
   ltm.h lzio.h lmem.h lstring.h lgc.h lvm.h
 lopcodes.o: lopcodes.c lopcodes.h llimits.h gafq.h gafqconf.h
 loslib.o: loslib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 lparser.o: lparser.c gafq.h gafqconf.h gcode.h llex.h lobject.h llimits.h \
-  lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h ldo.h \
+  lzio.h lmem.h lopcodes.h lparser.h gdebug.h lstate.h ltm.h gdo.h \
   lfunc.h lstring.h lgc.h ltable.h
 lstate.o: lstate.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h \
-  ltm.h lzio.h lmem.h ldo.h lfunc.h lgc.h llex.h lstring.h ltable.h
+  ltm.h lzio.h lmem.h gdo.h lfunc.h lgc.h llex.h lstring.h ltable.h
 lstring.o: lstring.c gafq.h gafqconf.h lmem.h llimits.h lobject.h lstate.h \
   ltm.h lzio.h lstring.h lgc.h
 lstrlib.o: lstrlib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 ltable.o: ltable.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h \
-  ltm.h lzio.h lmem.h ldo.h lgc.h ltable.h
+  ltm.h lzio.h lmem.h gdo.h lgc.h ltable.h
 ltablib.o: ltablib.c gafq.h gafqconf.h gauxlib.h gafqlib.h
 ltm.o: ltm.c gafq.h gafqconf.h lobject.h llimits.h lstate.h ltm.h lzio.h \
   lmem.h lstring.h lgc.h ltable.h
 gafq.o: gafq.c gafq.h gafqconf.h gauxlib.h gafqlib.h
-gafqc.o: gafqc.c gafq.h gafqconf.h gauxlib.h ldo.h lobject.h llimits.h \
+gafqc.o: gafqc.c gafq.h gafqconf.h gauxlib.h gdo.h lobject.h llimits.h \
   lstate.h ltm.h lzio.h lmem.h lfunc.h lopcodes.h lstring.h lgc.h \
   lundump.h
 lundump.o: lundump.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h \
-  llimits.h ltm.h lzio.h lmem.h ldo.h lfunc.h lstring.h lgc.h lundump.h
+  llimits.h ltm.h lzio.h lmem.h gdo.h lfunc.h lstring.h lgc.h lundump.h
 lvm.o: lvm.c gafq.h gafqconf.h gdebug.h lstate.h lobject.h llimits.h ltm.h \
-  lzio.h lmem.h ldo.h lfunc.h lgc.h lopcodes.h lstring.h ltable.h lvm.h
+  lzio.h lmem.h gdo.h lfunc.h lgc.h lopcodes.h lstring.h ltable.h lvm.h
 lzio.o: lzio.c gafq.h gafqconf.h llimits.h lmem.h lstate.h lobject.h ltm.h \
   lzio.h
 print.o: print.c gdebug.h lstate.h gafq.h gafqconf.h lobject.h llimits.h \

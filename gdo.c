@@ -1,5 +1,5 @@
 /*
-** $Id: ldo.c,v 2.38.1.4 2012/01/18 02:27:10 roberto Exp $
+** $Id: gdo.c,v 2.38.1.4 2012/01/18 02:27:10 roberto Exp $
 ** Stack and Call structure of Gafq
 ** See Copyright Notice in gafq.h
 */
@@ -9,13 +9,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ldo_c
+#define gdo_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdebug.h"
-#include "ldo.h"
+#include "gdo.h"
 #include "lfunc.h"
 #include "lgc.h"
 #include "lmem.h"

@@ -14,7 +14,7 @@
 
 #include "gafq.h"
 
-#include "ldo.h"
+#include "gdo.h"
 #include "llex.h"
 #include "lobject.h"
 #include "lparser.h"

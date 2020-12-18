@@ -15,7 +15,7 @@
 #include "gafq.h"
 #include "gauxlib.h"
 
-#include "ldo.h"
+#include "gdo.h"
 #include "lfunc.h"
 #include "lmem.h"
 #include "lobject.h"

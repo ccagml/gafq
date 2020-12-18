@@ -1,5 +1,5 @@
 /*
-** $Id: ldblib.c,v 1.104.1.4 2009/08/04 18:50:18 roberto Exp $
+** $Id: gdblib.c,v 1.104.1.4 2009/08/04 18:50:18 roberto Exp $
 ** Interface from Gafq to its debug API
 ** See Copyright Notice in gafq.h
 */
@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ldblib_c
+#define gdblib_c
 #define GAFQ_LIB
 
 #include "gafq.h"

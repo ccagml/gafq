@@ -15,7 +15,7 @@
 
 #include "gafq.h"
 
-#include "ldo.h"
+#include "gdo.h"
 #include "lmem.h"
 #include "lobject.h"
 #include "lstate.h"

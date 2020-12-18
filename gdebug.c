@@ -18,7 +18,7 @@
 #include "gapi.h"
 #include "gcode.h"
 #include "gdebug.h"
-#include "ldo.h"
+#include "gdo.h"
 #include "lfunc.h"
 #include "lobject.h"
 #include "lopcodes.h"

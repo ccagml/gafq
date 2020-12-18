@@ -1,11 +1,11 @@
 /*
-** $Id: ldo.h,v 2.7.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gdo.h,v 2.7.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Stack and Call structure of Gafq
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef ldo_h
-#define ldo_h
+#ifndef gdo_h
+#define gdo_h
 
 
 #include "lobject.h"
