@@ -22,8 +22,8 @@
 #include "gopcodes.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
-#include "ltm.h"
+#include "gtable.h"
+#include "gtm.h"
 #include "lvm.h"
 
 

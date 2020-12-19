@@ -1,11 +1,11 @@
 /*
-** $Id: ltable.h,v 2.10.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gtable.h,v 2.10.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Gafq tables (hash)
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef ltable_h
-#define ltable_h
+#ifndef gtable_h
+#define gtable_h
 
 #include "gobject.h"
 

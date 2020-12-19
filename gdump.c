@@ -13,7 +13,7 @@
 
 #include "gobject.h"
 #include "gstate.h"
-#include "lundump.h"
+#include "gundump.h"
 
 typedef struct {
  gafq_State* L;

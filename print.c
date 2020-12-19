@@ -13,7 +13,7 @@
 #include "gdebug.h"
 #include "gobject.h"
 #include "gopcodes.h"
-#include "lundump.h"
+#include "gundump.h"
 
 #define PrintFunction	gafqU_print
 

@@ -1,5 +1,5 @@
 /*
-** $Id: ltable.c,v 2.32.1.2 2007/12/28 15:32:23 roberto Exp $
+** $Id: gtable.c,v 2.32.1.2 2007/12/28 15:32:23 roberto Exp $
 ** Gafq tables (hash)
 ** See Copyright Notice in gafq.h
 */
@@ -21,7 +21,7 @@
 #include <math.h>
 #include <string.h>
 
-#define ltable_c
+#define gtable_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -32,7 +32,7 @@
 #include "gmem.h"
 #include "gobject.h"
 #include "gstate.h"
-#include "ltable.h"
+#include "gtable.h"
 
 
 /*

@@ -1,19 +1,19 @@
 /*
-** $Id: lundump.h,v 1.37.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gundump.h,v 1.37.1.1 2007/12/27 13:02:25 roberto Exp $
 ** load precompiled Gafq chunks
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lundump_h
-#define lundump_h
+#ifndef gundump_h
+#define gundump_h
 
 #include "gobject.h"
 #include "lzio.h"
 
-/* load one chunk; from lundump.c */
+/* load one chunk; from gundump.c */
 GAFQI_FUNC Proto* gafqU_undump (gafq_State* L, ZIO* Z, Mbuffer* buff, const char* name);
 
-/* make header; from lundump.c */
+/* make header; from gundump.c */
 GAFQI_FUNC void gafqU_header (char* h);
 
 /* dump one chunk; from gdump.c */

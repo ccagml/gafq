@@ -21,7 +21,7 @@
 #include "gobject.h"
 #include "gopcodes.h"
 #include "gparser.h"
-#include "ltable.h"
+#include "gtable.h"
 
 
 #define hasjumps(e)	((e)->t != (e)->f)

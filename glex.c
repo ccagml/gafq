@@ -20,7 +20,7 @@
 #include "gparser.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
+#include "gtable.h"
 #include "lzio.h"
 
 

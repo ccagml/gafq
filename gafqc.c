@@ -21,7 +21,7 @@
 #include "gobject.h"
 #include "gopcodes.h"
 #include "gstring.h"
-#include "lundump.h"
+#include "gundump.h"
 
 #define PROGNAME	"gafqc"		/* default program name */
 #define	OUTPUT		PROGNAME ".out"	/* default output file */

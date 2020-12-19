@@ -1,12 +1,12 @@
 /*
-** $Id: lundump.c,v 2.7.1.4 2008/04/04 19:51:41 roberto Exp $
+** $Id: gundump.c,v 2.7.1.4 2008/04/04 19:51:41 roberto Exp $
 ** load precompiled Gafq chunks
 ** See Copyright Notice in gafq.h
 */
 
 #include <string.h>
 
-#define lundump_c
+#define gundump_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -17,7 +17,7 @@
 #include "gmem.h"
 #include "gobject.h"
 #include "gstring.h"
-#include "lundump.h"
+#include "gundump.h"
 #include "lzio.h"
 
 typedef struct {

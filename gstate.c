@@ -20,8 +20,8 @@
 #include "gmem.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
-#include "ltm.h"
+#include "gtable.h"
+#include "gtm.h"
 
 
 #define state_size(x)	(sizeof(x) + GAFQI_EXTRASPACE)

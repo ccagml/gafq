@@ -24,9 +24,9 @@
 #include "gobject.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
-#include "ltm.h"
-#include "lundump.h"
+#include "gtable.h"
+#include "gtm.h"
+#include "gundump.h"
 #include "lvm.h"
 
 

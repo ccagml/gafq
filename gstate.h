@@ -10,7 +10,7 @@
 #include "gafq.h"
 
 #include "gobject.h"
-#include "ltm.h"
+#include "gtm.h"
 #include "lzio.h"
 
 

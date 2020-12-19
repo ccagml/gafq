@@ -10,7 +10,7 @@
 
 #include "gdo.h"
 #include "gobject.h"
-#include "ltm.h"
+#include "gtm.h"
 
 
 #define tostring(L,o) ((ttype(o) == GAFQ_TSTRING) || (gafqV_tostring(L, o)))

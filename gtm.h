@@ -1,11 +1,11 @@
 /*
-** $Id: ltm.h,v 2.6.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gtm.h,v 2.6.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Tag methods
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef ltm_h
-#define ltm_h
+#ifndef gtm_h
+#define gtm_h
 
 
 #include "gobject.h"

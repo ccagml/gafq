@@ -1,5 +1,5 @@
 /*
-** $Id: ltm.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gtm.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Tag methods
 ** See Copyright Notice in gafq.h
 */
@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#define ltm_c
+#define gtm_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -15,8 +15,8 @@
 #include "gobject.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
-#include "ltm.h"
+#include "gtable.h"
+#include "gtm.h"
 
 
 

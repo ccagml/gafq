@@ -19,8 +19,8 @@
 #include "gobject.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "ltable.h"
-#include "ltm.h"
+#include "gtable.h"
+#include "gtm.h"
 
 
 #define GCSTEPSIZE	1024u
