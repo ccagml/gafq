@@ -1,5 +1,5 @@
 /*
-** $Id: llex.c,v 2.20.1.2 2009/11/23 14:58:22 roberto Exp $
+** $Id: glex.c,v 2.20.1.2 2009/11/23 14:58:22 roberto Exp $
 ** Lexical Analyzer
 ** See Copyright Notice in gafq.h
 */
@@ -9,13 +9,13 @@
 #include <locale.h>
 #include <string.h>
 
-#define llex_c
+#define glex_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdo.h"
-#include "llex.h"
+#include "glex.h"
 #include "lobject.h"
 #include "lparser.h"
 #include "lstate.h"
@@ -331,7 +331,7 @@ static void read_string (LexState *ls, int del, SemInfo *seminfo) {
 }
 
 
-static int llex (LexState *ls, SemInfo *seminfo) {
+static int glex (LexState *ls, SemInfo *seminfo) {
   gafqZ_resetbuffer(ls->buff);
   for (;;) {
     switch (ls->current) {
@@ -452,12 +452,12 @@ void gafqX_next (LexState *ls) {
     ls->lookahead.token = TK_EOS;  /* and discharge it */
   }
   else
-    ls->t.token = llex(ls, &ls->t.seminfo);  /* read next token */
+    ls->t.token = glex(ls, &ls->t.seminfo);  /* read next token */
 }
 
 
 void gafqX_lookahead (LexState *ls) {
   gafq_assert(ls->lookahead.token == TK_EOS);
-  ls->lookahead.token = llex(ls, &ls->lookahead.seminfo);
+  ls->lookahead.token = glex(ls, &ls->lookahead.seminfo);
 }
 

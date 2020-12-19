@@ -154,7 +154,7 @@
 #if defined(GAFQ_BUILD_AS_DLL)
 
 #if defined(GAFQ_CORE) || defined(GAFQ_LIB)
-#define GAFQ_API __declspec(dllexport)
+#define GAFQ_API __declspec(dglexport)
 #else
 #define GAFQ_API __declspec(dllimport)
 #endif

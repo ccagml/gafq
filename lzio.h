@@ -10,7 +10,7 @@
 
 #include "gafq.h"
 
-#include "lmem.h"
+#include "gmem.h"
 
 
 #define EOZ	(-1)			/* end of stream */

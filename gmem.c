@@ -1,5 +1,5 @@
 /*
-** $Id: lmem.c,v 1.70.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gmem.c,v 1.70.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Interface to Memory Manager
 ** See Copyright Notice in gafq.h
 */
@@ -7,14 +7,14 @@
 
 #include <stddef.h>
 
-#define lmem_c
+#define gmem_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lmem.h"
+#include "gmem.h"
 #include "lobject.h"
 #include "lstate.h"
 

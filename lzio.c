@@ -13,7 +13,7 @@
 #include "gafq.h"
 
 #include "llimits.h"
-#include "lmem.h"
+#include "gmem.h"
 #include "lstate.h"
 #include "lzio.h"
 

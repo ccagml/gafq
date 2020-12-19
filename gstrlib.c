@@ -441,7 +441,7 @@ static const char *match (MatchState *ms, const char *s, const char *p) {
 
 
 
-static const char *lmemfind (const char *s1, size_t l1,
+static const char *gmemfind (const char *s1, size_t l1,
                                const char *s2, size_t l2) {
   if (l2 == 0) return s1;  /* empty strings are everywhere */
   else if (l2 > l1) return NULL;  /* avoids a negative `l1' */
@@ -502,7 +502,7 @@ static int str_find_aux (gafq_State *L, int find) {
   if (find && (gafq_toboolean(L, 4) ||  /* explicit request? */
       strpbrk(p, SPECIALS) == NULL)) {  /* or no special characters? */
     /* do a plain search */
-    const char *s2 = lmemfind(s+init, l1-init, p, l2);
+    const char *s2 = gmemfind(s+init, l1-init, p, l2);
     if (s2) {
       gafq_pushinteger(L, s2-s+1);
       gafq_pushinteger(L, s2-s+l2);
