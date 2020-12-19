@@ -276,7 +276,7 @@ static int load_aux (gafq_State *L, int status) {
 
 static int gafqB_loadstring (gafq_State *L) {
   size_t l;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   const char *chunkname = gafqL_optstring(L, 2, s);
   return load_aux(L, gafqL_loadbuffer(L, s, l, chunkname));
 }
@@ -305,7 +305,7 @@ static const char *generic_reader (gafq_State *L, void *ud, size_t *size) {
   }
   else if (gafq_isstring(L, -1)) {
     gafq_replace(L, 3);  /* save string in a reserved stack slot */
-    return gafq_tolstring(L, 3, size);
+    return gafq_togstring(L, 3, size);
   }
   else gafqL_error(L, "reader function must return a string");
   return NULL;  /* to avoid warnings */

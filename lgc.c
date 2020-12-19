@@ -17,8 +17,8 @@
 #include "lgc.h"
 #include "gmem.h"
 #include "gobject.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gstate.h"
+#include "gstring.h"
 #include "ltable.h"
 #include "ltm.h"
 

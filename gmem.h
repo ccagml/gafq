@@ -10,7 +10,7 @@
 
 #include <stddef.h>
 
-#include "llimits.h"
+#include "glimits.h"
 #include "gafq.h"
 
 #define MEMERRMSG	"not enough memory"

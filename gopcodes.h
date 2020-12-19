@@ -7,7 +7,7 @@
 #ifndef gopcodes_h
 #define gopcodes_h
 
-#include "llimits.h"
+#include "glimits.h"
 
 
 /*===========================================================================

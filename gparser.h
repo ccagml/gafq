@@ -1,13 +1,13 @@
 /*
-** $Id: lparser.h,v 1.57.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gparser.h,v 1.57.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Gafq Parser
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lparser_h
-#define lparser_h
+#ifndef gparser_h
+#define gparser_h
 
-#include "llimits.h"
+#include "glimits.h"
 #include "gobject.h"
 #include "lzio.h"
 
@@ -51,7 +51,7 @@ typedef struct upvaldesc {
 } upvaldesc;
 
 
-struct BlockCnt;  /* defined in lparser.c */
+struct BlockCnt;  /* defined in gparser.c */
 
 
 /* state needed to generate code for a given function */

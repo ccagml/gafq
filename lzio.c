@@ -12,9 +12,9 @@
 
 #include "gafq.h"
 
-#include "llimits.h"
+#include "glimits.h"
 #include "gmem.h"
-#include "lstate.h"
+#include "gstate.h"
 #include "lzio.h"
 
 

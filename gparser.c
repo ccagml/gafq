@@ -1,5 +1,5 @@
 /*
-** $Id: lparser.c,v 2.42.1.4 2011/10/21 19:31:42 roberto Exp $
+** $Id: gparser.c,v 2.42.1.4 2011/10/21 19:31:42 roberto Exp $
 ** Gafq Parser
 ** See Copyright Notice in gafq.h
 */
@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#define lparser_c
+#define gparser_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -20,9 +20,9 @@
 #include "gmem.h"
 #include "gobject.h"
 #include "gopcodes.h"
-#include "lparser.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gparser.h"
+#include "gstate.h"
+#include "gstring.h"
 #include "ltable.h"
 
 

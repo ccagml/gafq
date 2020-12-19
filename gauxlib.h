@@ -47,9 +47,9 @@ GAFQLIB_API int (gafqL_getmetafield) (gafq_State *L, int obj, const char *e);
 GAFQLIB_API int (gafqL_callmeta) (gafq_State *L, int obj, const char *e);
 GAFQLIB_API int (gafqL_typerror) (gafq_State *L, int narg, const char *tname);
 GAFQLIB_API int (gafqL_argerror) (gafq_State *L, int numarg, const char *extramsg);
-GAFQLIB_API const char *(gafqL_checklstring) (gafq_State *L, int numArg,
+GAFQLIB_API const char *(gafqL_checkgstring) (gafq_State *L, int numArg,
                                                           size_t *l);
-GAFQLIB_API const char *(gafqL_optlstring) (gafq_State *L, int numArg,
+GAFQLIB_API const char *(gafqL_optgstring) (gafq_State *L, int numArg,
                                           const char *def, size_t *l);
 GAFQLIB_API gafq_Number (gafqL_checknumber) (gafq_State *L, int numArg);
 GAFQLIB_API gafq_Number (gafqL_optnumber) (gafq_State *L, int nArg, gafq_Number def);
@@ -99,8 +99,8 @@ GAFQLIB_API const char *(gafqL_findtable) (gafq_State *L, int idx,
 
 #define gafqL_argcheck(L, cond,numarg,extramsg)	\
 		((void)((cond) || gafqL_argerror(L, (numarg), (extramsg))))
-#define gafqL_checkstring(L,n)	(gafqL_checklstring(L, (n), NULL))
-#define gafqL_optstring(L,n,d)	(gafqL_optlstring(L, (n), (d), NULL))
+#define gafqL_checkstring(L,n)	(gafqL_checkgstring(L, (n), NULL))
+#define gafqL_optstring(L,n,d)	(gafqL_optgstring(L, (n), (d), NULL))
 #define gafqL_checkint(L,n)	((int)gafqL_checkinteger(L, (n)))
 #define gafqL_optint(L,n,d)	((int)gafqL_optinteger(L, (n), (d)))
 #define gafqL_checklong(L,n)	((long)gafqL_checkinteger(L, (n)))
@@ -144,7 +144,7 @@ typedef struct gafqL_Buffer {
 
 GAFQLIB_API void (gafqL_buffinit) (gafq_State *L, gafqL_Buffer *B);
 GAFQLIB_API char *(gafqL_prepbuffer) (gafqL_Buffer *B);
-GAFQLIB_API void (gafqL_addlstring) (gafqL_Buffer *B, const char *s, size_t l);
+GAFQLIB_API void (gafqL_addgstring) (gafqL_Buffer *B, const char *s, size_t l);
 GAFQLIB_API void (gafqL_addstring) (gafqL_Buffer *B, const char *s);
 GAFQLIB_API void (gafqL_addvalue) (gafqL_Buffer *B);
 GAFQLIB_API void (gafqL_pushresult) (gafqL_Buffer *B);

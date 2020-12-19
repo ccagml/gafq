@@ -1,5 +1,5 @@
 /*
-** $Id: lstring.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gstring.c,v 2.8.1.1 2007/12/27 13:02:25 roberto Exp $
 ** String table (keeps all strings handled by Gafq)
 ** See Copyright Notice in gafq.h
 */
@@ -7,15 +7,15 @@
 
 #include <string.h>
 
-#define lstring_c
+#define gstring_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gmem.h"
 #include "gobject.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gstate.h"
+#include "gstring.h"
 
 
 

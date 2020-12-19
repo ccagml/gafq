@@ -641,7 +641,7 @@ union gafqi_Cast { double l_d; long l_l; };
 ** insecure) or if you want the original tmpnam anyway.  By default, Gafq
 ** uses tmpnam except when POSIX is available, where it uses mkstemp.
 */
-#if defined(loslib_c) || defined(gafqall_c)
+#if defined(goslib_c) || defined(gafqall_c)
 
 #if defined(GAFQ_USE_MKSTEMP)
 #include <unistd.h>

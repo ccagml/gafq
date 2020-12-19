@@ -12,7 +12,7 @@
 #include "gafq.h"
 
 #include "gobject.h"
-#include "lstate.h"
+#include "gstate.h"
 #include "lundump.h"
 
 typedef struct {

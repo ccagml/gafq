@@ -12,7 +12,7 @@
 #include <stdarg.h>
 
 
-#include "llimits.h"
+#include "glimits.h"
 #include "gafq.h"
 
 

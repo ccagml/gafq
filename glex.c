@@ -17,9 +17,9 @@
 #include "gdo.h"
 #include "glex.h"
 #include "gobject.h"
-#include "lparser.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gparser.h"
+#include "gstate.h"
+#include "gstring.h"
 #include "ltable.h"
 #include "lzio.h"
 

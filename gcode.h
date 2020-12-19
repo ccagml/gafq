@@ -10,7 +10,7 @@
 #include "glex.h"
 #include "gobject.h"
 #include "gopcodes.h"
-#include "lparser.h"
+#include "gparser.h"
 
 
 /*

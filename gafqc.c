@@ -20,7 +20,7 @@
 #include "gmem.h"
 #include "gobject.h"
 #include "gopcodes.h"
-#include "lstring.h"
+#include "gstring.h"
 #include "lundump.h"
 
 #define PROGNAME	"gafqc"		/* default program name */

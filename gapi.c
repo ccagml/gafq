@@ -22,8 +22,8 @@
 #include "lgc.h"
 #include "gmem.h"
 #include "gobject.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gstate.h"
+#include "gstring.h"
 #include "ltable.h"
 #include "ltm.h"
 #include "lundump.h"
@@ -340,7 +340,7 @@ GAFQ_API int gafq_toboolean (gafq_State *L, int idx) {
 }
 
 
-GAFQ_API const char *gafq_tolstring (gafq_State *L, int idx, size_t *len) {
+GAFQ_API const char *gafq_togstring (gafq_State *L, int idx, size_t *len) {
   StkId o = index2adr(L, idx);
   if (!ttisstring(o)) {
     gafq_lock(L);  /* `gafqV_tostring' may create a new string */
@@ -442,7 +442,7 @@ GAFQ_API void gafq_pushinteger (gafq_State *L, gafq_Integer n) {
 }
 
 
-GAFQ_API void gafq_pushlstring (gafq_State *L, const char *s, size_t len) {
+GAFQ_API void gafq_pushgstring (gafq_State *L, const char *s, size_t len) {
   gafq_lock(L);
   gafqC_checkGC(L);
   setsvalue2s(L, L->top, gafqS_newlstr(L, s, len));
@@ -455,7 +455,7 @@ GAFQ_API void gafq_pushstring (gafq_State *L, const char *s) {
   if (s == NULL)
     gafq_pushnil(L);
   else
-    gafq_pushlstring(L, s, strlen(s));
+    gafq_pushgstring(L, s, strlen(s));
 }
 
 

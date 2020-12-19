@@ -1,16 +1,16 @@
 /*
-** $Id: lstring.h,v 1.43.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gstring.h,v 1.43.1.1 2007/12/27 13:02:25 roberto Exp $
 ** String table (keep all strings handled by Gafq)
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lstring_h
-#define lstring_h
+#ifndef gstring_h
+#define gstring_h
 
 
 #include "lgc.h"
 #include "gobject.h"
-#include "lstate.h"
+#include "gstate.h"
 
 
 #define sizestring(s)	(sizeof(union TString)+((s)->len+1)*sizeof(char))

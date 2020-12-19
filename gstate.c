@@ -1,5 +1,5 @@
 /*
-** $Id: lstate.c,v 2.36.1.2 2008/01/03 15:20:39 roberto Exp $
+** $Id: gstate.c,v 2.36.1.2 2008/01/03 15:20:39 roberto Exp $
 ** Global State
 ** See Copyright Notice in gafq.h
 */
@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 
-#define lstate_c
+#define gstate_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -18,8 +18,8 @@
 #include "lgc.h"
 #include "glex.h"
 #include "gmem.h"
-#include "lstate.h"
-#include "lstring.h"
+#include "gstate.h"
+#include "gstring.h"
 #include "ltable.h"
 #include "ltm.h"
 

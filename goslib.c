@@ -1,5 +1,5 @@
 /*
-** $Id: loslib.c,v 1.19.1.3 2008/01/18 16:38:18 roberto Exp $
+** $Id: goslib.c,v 1.19.1.3 2008/01/18 16:38:18 roberto Exp $
 ** Standard Operating System library
 ** See Copyright Notice in gafq.h
 */
@@ -11,7 +11,7 @@
 #include <string.h>
 #include <time.h>
 
-#define loslib_c
+#define goslib_c
 #define GAFQ_LIB
 
 #include "gafq.h"
@@ -158,7 +158,7 @@ static int os_date (gafq_State *L) {
         char buff[200];  /* should be big enough for any conversion result */
         cc[1] = *(++s);
         reslen = strftime(buff, sizeof(buff), cc, stm);
-        gafqL_addlstring(&b, buff, reslen);
+        gafqL_addgstring(&b, buff, reslen);
       }
     }
     gafqL_pushresult(&b);

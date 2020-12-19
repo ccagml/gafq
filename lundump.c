@@ -16,7 +16,7 @@
 #include "lfunc.h"
 #include "gmem.h"
 #include "gobject.h"
-#include "lstring.h"
+#include "gstring.h"
 #include "lundump.h"
 #include "lzio.h"
 

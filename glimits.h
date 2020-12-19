@@ -1,11 +1,11 @@
 /*
-** $Id: llimits.h,v 1.69.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: glimits.h,v 1.69.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Limits, basic types, and some other `installation-dependent' definitions
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef llimits_h
-#define llimits_h
+#ifndef glimits_h
+#define glimits_h
 
 
 #include <limits.h>
