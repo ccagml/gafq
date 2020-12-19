@@ -1,5 +1,5 @@
 /*
-** $Id: lvm.c,v 2.63.1.5 2011/08/17 20:43:11 roberto Exp $
+** $Id: gvm.c,v 2.63.1.5 2011/08/17 20:43:11 roberto Exp $
 ** Gafq virtual machine
 ** See Copyright Notice in gafq.h
 */
@@ -9,22 +9,22 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define lvm_c
+#define gvm_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
-#include "lgc.h"
+#include "gfunc.h"
+#include "ggc.h"
 #include "gobject.h"
 #include "gopcodes.h"
 #include "gstate.h"
 #include "gstring.h"
 #include "gtable.h"
 #include "gtm.h"
-#include "lvm.h"
+#include "gvm.h"
 
 
 

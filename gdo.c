@@ -16,8 +16,8 @@
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
-#include "lgc.h"
+#include "gfunc.h"
+#include "ggc.h"
 #include "gmem.h"
 #include "gobject.h"
 #include "gopcodes.h"
@@ -27,8 +27,8 @@
 #include "gtable.h"
 #include "gtm.h"
 #include "gundump.h"
-#include "lvm.h"
-#include "lzio.h"
+#include "gvm.h"
+#include "gzio.h"
 
 
 

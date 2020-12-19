@@ -11,7 +11,7 @@
 
 #include "gobject.h"
 #include "gtm.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 

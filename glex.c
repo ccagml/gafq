@@ -21,7 +21,7 @@
 #include "gstate.h"
 #include "gstring.h"
 #include "gtable.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 

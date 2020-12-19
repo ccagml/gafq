@@ -10,7 +10,7 @@
 
 #include "gobject.h"
 #include "gstate.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 #define gafqD_checkstack(L,n)	\

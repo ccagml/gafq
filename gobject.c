@@ -20,7 +20,7 @@
 #include "gobject.h"
 #include "gstate.h"
 #include "gstring.h"
-#include "lvm.h"
+#include "gvm.h"
 
 
 

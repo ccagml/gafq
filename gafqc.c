@@ -16,7 +16,7 @@
 #include "gauxlib.h"
 
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "gmem.h"
 #include "gobject.h"
 #include "gopcodes.h"

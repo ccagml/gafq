@@ -8,7 +8,7 @@
 #define glex_h
 
 #include "gobject.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 #define FIRST_RESERVED	257

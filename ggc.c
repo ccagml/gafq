@@ -1,20 +1,20 @@
 /*
-** $Id: lgc.c,v 2.38.1.2 2011/03/18 18:05:38 roberto Exp $
+** $Id: ggc.c,v 2.38.1.2 2011/03/18 18:05:38 roberto Exp $
 ** Garbage Collector
 ** See Copyright Notice in gafq.h
 */
 
 #include <string.h>
 
-#define lgc_c
+#define ggc_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
-#include "lgc.h"
+#include "gfunc.h"
+#include "ggc.h"
 #include "gmem.h"
 #include "gobject.h"
 #include "gstate.h"

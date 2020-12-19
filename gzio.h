@@ -1,12 +1,12 @@
 /*
-** $Id: lzio.h,v 1.21.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gzio.h,v 1.21.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Buffered streams
 ** See Copyright Notice in gafq.h
 */
 
 
-#ifndef lzio_h
-#define lzio_h
+#ifndef gzio_h
+#define gzio_h
 
 #include "gafq.h"
 

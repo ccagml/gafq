@@ -14,8 +14,8 @@
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
-#include "lgc.h"
+#include "gfunc.h"
+#include "ggc.h"
 #include "glex.h"
 #include "gmem.h"
 #include "gstate.h"
@@ -190,7 +190,7 @@ GAFQ_API gafq_State *gafq_newstate (gafq_Alloc f, void *ud) {
 }
 
 
-static void callallgcTM (gafq_State *L, void *ud) {
+static void callalggcTM (gafq_State *L, void *ud) {
   UNUSED(ud);
   gafqC_callGCTM(L);  /* call GC metamethods for all udata */
 }
@@ -206,7 +206,7 @@ GAFQ_API void gafq_close (gafq_State *L) {
     L->ci = L->base_ci;
     L->base = L->top = L->ci->base;
     L->nCcalls = L->baseCcalls = 0;
-  } while (gafqD_rawrunprotected(L, callallgcTM, NULL) != 0);
+  } while (gafqD_rawrunprotected(L, callalggcTM, NULL) != 0);
   gafq_assert(G(L)->tmudata == NULL);
   gafqi_userstateclose(L);
   close_state(L);

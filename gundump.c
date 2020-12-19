@@ -13,12 +13,12 @@
 
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "gmem.h"
 #include "gobject.h"
 #include "gstring.h"
 #include "gundump.h"
-#include "lzio.h"
+#include "gzio.h"
 
 typedef struct {
  gafq_State* L;

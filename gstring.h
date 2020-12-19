@@ -8,7 +8,7 @@
 #define gstring_h
 
 
-#include "lgc.h"
+#include "ggc.h"
 #include "gobject.h"
 #include "gstate.h"
 

@@ -19,14 +19,14 @@
 #include "gcode.h"
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
+#include "gfunc.h"
 #include "gobject.h"
 #include "gopcodes.h"
 #include "gstate.h"
 #include "gstring.h"
 #include "gtable.h"
 #include "gtm.h"
-#include "lvm.h"
+#include "gvm.h"
 
 
 

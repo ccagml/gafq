@@ -1,11 +1,11 @@
 /*
-** $Id: lfunc.h,v 2.4.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gfunc.h,v 2.4.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Auxiliary functions to manipulate prototypes and closures
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lfunc_h
-#define lfunc_h
+#ifndef gfunc_h
+#define gfunc_h
 
 
 #include "gobject.h"

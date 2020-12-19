@@ -1,11 +1,11 @@
 /*
-** $Id: lvm.h,v 2.5.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gvm.h,v 2.5.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Gafq virtual machine
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lvm_h
-#define lvm_h
+#ifndef gvm_h
+#define gvm_h
 
 
 #include "gdo.h"

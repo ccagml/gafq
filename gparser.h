@@ -9,7 +9,7 @@
 
 #include "glimits.h"
 #include "gobject.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 /*

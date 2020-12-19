@@ -1,5 +1,5 @@
 /*
-** $Id: lzio.c,v 1.31.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gzio.c,v 1.31.1.1 2007/12/27 13:02:25 roberto Exp $
 ** a generic input stream interface
 ** See Copyright Notice in gafq.h
 */
@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#define lzio_c
+#define gzio_c
 #define GAFQ_CORE
 
 #include "gafq.h"
@@ -15,7 +15,7 @@
 #include "glimits.h"
 #include "gmem.h"
 #include "gstate.h"
-#include "lzio.h"
+#include "gzio.h"
 
 
 int gafqZ_fill (ZIO *z) {

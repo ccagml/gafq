@@ -18,8 +18,8 @@
 #include "gapi.h"
 #include "gdebug.h"
 #include "gdo.h"
-#include "lfunc.h"
-#include "lgc.h"
+#include "gfunc.h"
+#include "ggc.h"
 #include "gmem.h"
 #include "gobject.h"
 #include "gstate.h"
@@ -27,7 +27,7 @@
 #include "gtable.h"
 #include "gtm.h"
 #include "gundump.h"
-#include "lvm.h"
+#include "gvm.h"
 
 
 

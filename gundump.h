@@ -8,7 +8,7 @@
 #define gundump_h
 
 #include "gobject.h"
-#include "lzio.h"
+#include "gzio.h"
 
 /* load one chunk; from gundump.c */
 GAFQI_FUNC Proto* gafqU_undump (gafq_State* L, ZIO* Z, Mbuffer* buff, const char* name);
