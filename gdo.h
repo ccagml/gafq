@@ -8,7 +8,7 @@
 #define gdo_h
 
 
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 #include "lzio.h"
 

@@ -12,7 +12,7 @@
 
 #include "gafq.h"
 
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 #include "lstring.h"
 #include "ltable.h"

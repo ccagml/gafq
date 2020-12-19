@@ -8,8 +8,8 @@
 #define gcode_h
 
 #include "glex.h"
-#include "lobject.h"
-#include "lopcodes.h"
+#include "gobject.h"
+#include "gopcodes.h"
 #include "lparser.h"
 
 

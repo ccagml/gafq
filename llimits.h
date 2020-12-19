@@ -83,7 +83,7 @@ typedef GAFQI_UACNUMBER l_uacNumber;
 
 /*
 ** type for virtual-machine instructions
-** must be an unsigned with (at least) 4 bytes (see details in lopcodes.h)
+** must be an unsigned with (at least) 4 bytes (see details in gopcodes.h)
 */
 typedef lu_int32 Instruction;
 

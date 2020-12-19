@@ -1,11 +1,11 @@
 /*
-** $Id: lopcodes.h,v 1.125.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gopcodes.h,v 1.125.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Opcodes for Gafq virtual machine
 ** See Copyright Notice in gafq.h
 */
 
-#ifndef lopcodes_h
-#define lopcodes_h
+#ifndef gopcodes_h
+#define gopcodes_h
 
 #include "llimits.h"
 

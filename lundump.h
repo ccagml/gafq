@@ -7,7 +7,7 @@
 #ifndef lundump_h
 #define lundump_h
 
-#include "lobject.h"
+#include "gobject.h"
 #include "lzio.h"
 
 /* load one chunk; from lundump.c */

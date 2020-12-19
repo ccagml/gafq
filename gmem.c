@@ -15,7 +15,7 @@
 #include "gdebug.h"
 #include "gdo.h"
 #include "gmem.h"
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 
 

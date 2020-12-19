@@ -13,7 +13,7 @@
 #include "gafq.h"
 
 #include "gmem.h"
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 #include "lstring.h"
 

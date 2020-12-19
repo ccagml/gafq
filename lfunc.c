@@ -15,7 +15,7 @@
 #include "lfunc.h"
 #include "lgc.h"
 #include "gmem.h"
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 
 

@@ -7,7 +7,7 @@
 #ifndef glex_h
 #define glex_h
 
-#include "lobject.h"
+#include "gobject.h"
 #include "lzio.h"
 
 

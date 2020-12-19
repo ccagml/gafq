@@ -1,14 +1,14 @@
 /*
-** $Id: lopcodes.c,v 1.37.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gopcodes.c,v 1.37.1.1 2007/12/27 13:02:25 roberto Exp $
 ** See Copyright Notice in gafq.h
 */
 
 
-#define lopcodes_c
+#define gopcodes_c
 #define GAFQ_CORE
 
 
-#include "lopcodes.h"
+#include "gopcodes.h"
 
 
 /* ORDER OP */

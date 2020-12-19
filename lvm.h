@@ -9,7 +9,7 @@
 
 
 #include "gdo.h"
-#include "lobject.h"
+#include "gobject.h"
 #include "ltm.h"
 
 

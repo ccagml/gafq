@@ -1,12 +1,12 @@
 /*
-** $Id: lobject.h,v 2.20.1.2 2008/08/06 13:29:48 roberto Exp $
+** $Id: gobject.h,v 2.20.1.2 2008/08/06 13:29:48 roberto Exp $
 ** Type definitions for Gafq objects
 ** See Copyright Notice in gafq.h
 */
 
 
-#ifndef lobject_h
-#define lobject_h
+#ifndef gobject_h
+#define gobject_h
 
 
 #include <stdarg.h>

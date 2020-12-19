@@ -18,8 +18,8 @@
 #include "gdo.h"
 #include "lfunc.h"
 #include "gmem.h"
-#include "lobject.h"
-#include "lopcodes.h"
+#include "gobject.h"
+#include "gopcodes.h"
 #include "lstring.h"
 #include "lundump.h"
 

@@ -1,5 +1,5 @@
 /*
-** $Id: lobject.c,v 2.22.1.1 2007/12/27 13:02:25 roberto Exp $
+** $Id: gobject.c,v 2.22.1.1 2007/12/27 13:02:25 roberto Exp $
 ** Some generic functions over Gafq objects
 ** See Copyright Notice in gafq.h
 */
@@ -10,14 +10,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define lobject_c
+#define gobject_c
 #define GAFQ_CORE
 
 #include "gafq.h"
 
 #include "gdo.h"
 #include "gmem.h"
-#include "lobject.h"
+#include "gobject.h"
 #include "lstate.h"
 #include "lstring.h"
 #include "lvm.h"
