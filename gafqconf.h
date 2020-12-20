@@ -443,6 +443,7 @@
 ** functions to consume unlimited stack space. (must be smaller than
 ** -GAFQ_REGISTRYINDEX)
 */
+//栈的最大值？
 #define GAFQI_MAXCSTACK	8000
 
 

@@ -75,7 +75,7 @@ static TValue *index2adr (gafq_State *L, int idx) {
   }
 }
 
-
+//？作用域？
 static Table *getcurrenv (gafq_State *L) {
   if (L->ci == L->base_ci)  /* no enclosing function? */
     return hvalue(gt(L));  /* use global table as environment */
@@ -85,13 +85,13 @@ static Table *getcurrenv (gafq_State *L) {
   }
 }
 
-
+//把对象放到状态顶
 void gafqA_pushobject (gafq_State *L, const TValue *o) {
   setobj2s(L, L->top, o);
   api_incr_top(L);
 }
 
-
+//检查栈
 GAFQ_API int gafq_checkstack (gafq_State *L, int size) {
   int res = 1;
   gafq_lock(L);
@@ -106,7 +106,7 @@ GAFQ_API int gafq_checkstack (gafq_State *L, int size) {
   return res;
 }
 
-
+//把状态from转到to， 转移n个？
 GAFQ_API void gafq_xmove (gafq_State *from, gafq_State *to, int n) {
   int i;
   if (from == to) return;
@@ -126,7 +126,7 @@ GAFQ_API void gafq_setlevel (gafq_State *from, gafq_State *to) {
   to->nCcalls = from->nCcalls;
 }
 
-
+//替换恐慌函数
 GAFQ_API gafq_CFunction gafq_atpanic (gafq_State *L, gafq_CFunction panicf) {
   gafq_CFunction old;
   gafq_lock(L);
@@ -136,7 +136,7 @@ GAFQ_API gafq_CFunction gafq_atpanic (gafq_State *L, gafq_CFunction panicf) {
   return old;
 }
 
-
+//？新线程？
 GAFQ_API gafq_State *gafq_newthread (gafq_State *L) {
   gafq_State *L1;
   gafq_lock(L);
@@ -155,12 +155,12 @@ GAFQ_API gafq_State *gafq_newthread (gafq_State *L) {
 ** basic stack manipulation
 */
 
-
+//取顶部
 GAFQ_API int gafq_gettop (gafq_State *L) {
   return cast_int(L->top - L->base);
 }
 
-
+//设置顶部
 GAFQ_API void gafq_settop (gafq_State *L, int idx) {
   gafq_lock(L);
   if (idx >= 0) {
@@ -176,7 +176,7 @@ GAFQ_API void gafq_settop (gafq_State *L, int idx) {
   gafq_unlock(L);
 }
 
-
+//移除第index个
 GAFQ_API void gafq_remove (gafq_State *L, int idx) {
   StkId p;
   gafq_lock(L);
@@ -187,7 +187,7 @@ GAFQ_API void gafq_remove (gafq_State *L, int idx) {
   gafq_unlock(L);
 }
 
-
+//插入
 GAFQ_API void gafq_insert (gafq_State *L, int idx) {
   StkId p;
   StkId q;
@@ -199,7 +199,7 @@ GAFQ_API void gafq_insert (gafq_State *L, int idx) {
   gafq_unlock(L);
 }
 
-
+//替换
 GAFQ_API void gafq_replace (gafq_State *L, int idx) {
   StkId o;
   gafq_lock(L);
@@ -224,7 +224,7 @@ GAFQ_API void gafq_replace (gafq_State *L, int idx) {
   gafq_unlock(L);
 }
 
-
+//推一个值到顶部
 GAFQ_API void gafq_pushvalue (gafq_State *L, int idx) {
   gafq_lock(L);
   setobj2s(L, L->top, index2adr(L, idx));
@@ -238,7 +238,7 @@ GAFQ_API void gafq_pushvalue (gafq_State *L, int idx) {
 ** access functions (stack -> C)
 */
 
-
+//类型
 GAFQ_API int gafq_type (gafq_State *L, int idx) {
   StkId o = index2adr(L, idx);
   return (o == gafqO_nilobject) ? GAFQ_TNONE : ttype(o);
@@ -250,13 +250,13 @@ GAFQ_API const char *gafq_typename (gafq_State *L, int t) {
   return (t == GAFQ_TNONE) ? "no value" : gafqT_typenames[t];
 }
 
-
+//判断是否函数
 GAFQ_API int gafq_iscfunction (gafq_State *L, int idx) {
   StkId o = index2adr(L, idx);
   return iscfunction(o);
 }
 
-
+//判断整数
 GAFQ_API int gafq_isnumber (gafq_State *L, int idx) {
   TValue n;
   const TValue *o = index2adr(L, idx);
@@ -295,7 +295,7 @@ GAFQ_API int gafq_equal (gafq_State *L, int index1, int index2) {
   return i;
 }
 
-
+//小于
 GAFQ_API int gafq_lessthan (gafq_State *L, int index1, int index2) {
   StkId o1, o2;
   int i;
@@ -309,7 +309,7 @@ GAFQ_API int gafq_lessthan (gafq_State *L, int index1, int index2) {
 }
 
 
-
+//转成数字
 GAFQ_API gafq_Number gafq_tonumber (gafq_State *L, int idx) {
   TValue n;
   const TValue *o = index2adr(L, idx);
@@ -333,7 +333,7 @@ GAFQ_API gafq_Integer gafq_tointeger (gafq_State *L, int idx) {
     return 0;
 }
 
-
+//转成布尔
 GAFQ_API int gafq_toboolean (gafq_State *L, int idx) {
   const TValue *o = index2adr(L, idx);
   return !l_isfalse(o);
@@ -357,7 +357,7 @@ GAFQ_API const char *gafq_togstring (gafq_State *L, int idx, size_t *len) {
   return svalue(o);
 }
 
-
+//获取对象长度
 GAFQ_API size_t gafq_objlen (gafq_State *L, int idx) {
   StkId o = index2adr(L, idx);
   switch (ttype(o)) {
@@ -574,7 +574,7 @@ GAFQ_API void gafq_rawgeti (gafq_State *L, int idx, int n) {
   gafq_unlock(L);
 }
 
-
+//创建一个表
 GAFQ_API void gafq_createtable (gafq_State *L, int narray, int nrec) {
   gafq_lock(L);
   gafqC_checkGC(L);
