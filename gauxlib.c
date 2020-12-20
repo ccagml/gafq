@@ -142,7 +142,7 @@ GAFQLIB_API void gafqL_checkstack (gafq_State *L, int space, const char *mes) {
     gafqL_error(L, "stack overflow (%s)", mes);
 }
 
-
+//检查类型是不是最后一个参数
 GAFQLIB_API void gafqL_checktype (gafq_State *L, int narg, int t) {
   if (gafq_type(L, narg) != t)
     tag_error(L, narg, t);

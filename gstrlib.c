@@ -138,14 +138,14 @@ static int str_char (gafq_State *L) {
   return 1;
 }
 
-
+//看着是把b写到B字符流里面
 static int writer (gafq_State *L, const void* b, size_t size, void* B) {
   (void)L;
   gafqL_addgstring((gafqL_Buffer*) B, (const char *)b, size);
   return 0;
 }
 
-
+//看着是拷贝，？是不是递归需要？
 static int str_dump (gafq_State *L) {
   gafqL_Buffer b;
   gafqL_checktype(L, 1, GAFQ_TFUNCTION);
