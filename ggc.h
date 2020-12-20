@@ -76,7 +76,7 @@
 
 #define gafqC_white(g)	cast(lu_byte, (g)->currentwhite & WHITEBITS)
 
-
+//检查垃圾回收？gapi的gafq_concat看到
 #define gafqC_checkGC(L) { \
   condhardstacktests(gafqD_reallocstack(L, L->stacksize - EXTRA_STACK - 1)); \
   if (G(L)->totalbytes >= G(L)->GCthreshold) \

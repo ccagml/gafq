@@ -125,7 +125,7 @@ GAFQLIB_API const char *(gafqL_findtable) (gafq_State *L, int idx,
 */
 
 
-
+// 应该是个字节流结构,在gstrlib看到
 typedef struct gafqL_Buffer {
   char *p;			/* current position in buffer */
   int lvl;  /* number of strings in the stack (level) */
@@ -133,6 +133,7 @@ typedef struct gafqL_Buffer {
   char buffer[GAFQL_BUFFERSIZE];
 } gafqL_Buffer;
 
+// 字节流假如一个字符
 #define gafqL_addchar(B,c) \
   ((void)((B)->p < ((B)->buffer+GAFQL_BUFFERSIZE) || gafqL_prepbuffer(B)), \
    (*(B)->p++ = (char)(c)))

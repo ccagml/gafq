@@ -32,16 +32,17 @@ static int str_len (gafq_State *L) {
   return 1;
 }
 
-
+// ptrdiff_t 是预定义的内容好像跟gcc有关系 https://stackoverflow.com/questions/38032035/ptrdiff-type-vs-ptrdiff-t
 static ptrdiff_t posrelat (ptrdiff_t pos, size_t len) {
   /* relative string position: negative means back from end */
   if (pos < 0) pos += (ptrdiff_t)len + 1;
   return (pos >= 0) ? pos : 0;
 }
 
-
+//这个截取字符串
 static int str_sub (gafq_State *L) {
   size_t l;
+  // 取出字符串， l是字符串长度
   const char *s = gafqL_checkgstring(L, 1, &l);
   ptrdiff_t start = posrelat(gafqL_checkinteger(L, 2), l);
   ptrdiff_t end = posrelat(gafqL_optinteger(L, 3, -1), l);
@@ -53,7 +54,7 @@ static int str_sub (gafq_State *L) {
   return 1;
 }
 
-
+//反转字符串
 static int str_reverse (gafq_State *L) {
   size_t l;
   gafqL_Buffer b;
@@ -64,7 +65,7 @@ static int str_reverse (gafq_State *L) {
   return 1;
 }
 
-
+//转成消协
 static int str_lower (gafq_State *L) {
   size_t l;
   size_t i;
@@ -77,7 +78,7 @@ static int str_lower (gafq_State *L) {
   return 1;
 }
 
-
+//转成大写
 static int str_upper (gafq_State *L) {
   size_t l;
   size_t i;
@@ -90,6 +91,7 @@ static int str_upper (gafq_State *L) {
   return 1;
 }
 
+//看着是复制n次字符串
 static int str_rep (gafq_State *L) {
   size_t l;
   gafqL_Buffer b;
@@ -102,7 +104,7 @@ static int str_rep (gafq_State *L) {
   return 1;
 }
 
-
+//返回char数字，可以有2个参数范围
 static int str_byte (gafq_State *L) {
   size_t l;
   const char *s = gafqL_checkgstring(L, 1, &l);
@@ -121,7 +123,7 @@ static int str_byte (gafq_State *L) {
   return n;
 }
 
-
+//取n个参数，把参数个数的整数转成字符
 static int str_char (gafq_State *L) {
   int n = gafq_gettop(L);  /* number of arguments */
   int i;

@@ -45,7 +45,7 @@ const char gafq_ident[] =
 #define api_incr_top(L)   {api_check(L, L->top < L->ci->top); L->top++;}
 
 
-
+//看着是获取偏移地址
 static TValue *index2adr (gafq_State *L, int idx) {
   if (idx > 0) {
     TValue *o = L->base + (idx - 1);
@@ -319,7 +319,7 @@ GAFQ_API gafq_Number gafq_tonumber (gafq_State *L, int idx) {
     return 0;
 }
 
-
+// 获取数字
 GAFQ_API gafq_Integer gafq_tointeger (gafq_State *L, int idx) {
   TValue n;
   const TValue *o = index2adr(L, idx);
@@ -339,7 +339,7 @@ GAFQ_API int gafq_toboolean (gafq_State *L, int idx) {
   return !l_isfalse(o);
 }
 
-
+//获取字符串，会在len的指针设置长度
 GAFQ_API const char *gafq_togstring (gafq_State *L, int idx, size_t *len) {
   StkId o = index2adr(L, idx);
   if (!ttisstring(o)) {
@@ -433,7 +433,7 @@ GAFQ_API void gafq_pushnumber (gafq_State *L, gafq_Number n) {
   gafq_unlock(L);
 }
 
-
+//插入一个整数
 GAFQ_API void gafq_pushinteger (gafq_State *L, gafq_Integer n) {
   gafq_lock(L);
   setnvalue(L->top, cast_num(n));
@@ -986,7 +986,7 @@ GAFQ_API int gafq_next (gafq_State *L, int idx) {
   return more;
 }
 
-
+//看着是要合并字符串
 GAFQ_API void gafq_concat (gafq_State *L, int n) {
   gafq_lock(L);
   api_checknelems(L, n);

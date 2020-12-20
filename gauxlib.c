@@ -394,7 +394,7 @@ GAFQLIB_API const char *gafqL_findtable (gafq_State *L, int idx,
 
 #define LIMIT	(GAFQ_MINSTACK/2)
 
-
+//清空字节流，把字节流放入状态里
 static int emptybuffer (gafqL_Buffer *B) {
   size_t l = bufflen(B);
   if (l == 0) return 0;  /* put nothing on stack */
@@ -443,7 +443,7 @@ GAFQLIB_API void gafqL_addstring (gafqL_Buffer *B, const char *s) {
   gafqL_addgstring(B, s, strlen(s));
 }
 
-
+//好像是把字节流放回状态里
 GAFQLIB_API void gafqL_pushresult (gafqL_Buffer *B) {
   emptybuffer(B);
   gafq_concat(B->L, B->lvl);
