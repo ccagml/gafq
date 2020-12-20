@@ -172,11 +172,11 @@ GAFQLIB_API const char *gafqL_optgstring (gafq_State *L, int narg,
   else return gafqL_checkgstring(L, narg, len);
 }
 
-
+//检查数字
 GAFQLIB_API gafq_Number gafqL_checknumber (gafq_State *L, int narg) {
   gafq_Number d = gafq_tonumber(L, narg);
   if (d == 0 && !gafq_isnumber(L, narg))  /* avoid extra test when d is not 0 */
-    tag_error(L, narg, GAFQ_TNUMBER);
+    tag_error(L, narg, GAFQ_TNUMBER); // 输出类型错误的打印
   return d;
 }
 

@@ -19,7 +19,7 @@
 #include "gtm.h"
 
 
-
+// 变量类型名称
 const char *const gafqT_typenames[] = {
   "nil", "boolean", "userdata", "number",
   "string", "table", "function", "userdata", "thread",

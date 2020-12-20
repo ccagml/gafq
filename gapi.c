@@ -244,7 +244,7 @@ GAFQ_API int gafq_type (gafq_State *L, int idx) {
   return (o == gafqO_nilobject) ? GAFQ_TNONE : ttype(o);
 }
 
-
+//获取类型名称， nil, boolean, number, string,table 之类的
 GAFQ_API const char *gafq_typename (gafq_State *L, int t) {
   UNUSED(L);
   return (t == GAFQ_TNONE) ? "no value" : gafqT_typenames[t];
