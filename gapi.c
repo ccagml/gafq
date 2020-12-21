@@ -583,7 +583,7 @@ GAFQ_API void gafq_createtable (gafq_State *L, int narray, int nrec) {
   gafq_unlock(L);
 }
 
-
+//创建元表？
 GAFQ_API int gafq_getmetatable (gafq_State *L, int objindex) {
   const TValue *obj;
   Table *mt = NULL;
