@@ -163,7 +163,7 @@ static const char *get_prompt (gafq_State *L, int firstline) {
 static int incomplete (gafq_State *L, int status) {
   if (status == GAFQ_ERRSYNTAX) {
     size_t lmsg;
-    const char *msg = gafq_tolstring(L, -1, &lmsg);
+    const char *msg = gafq_togstring(L, -1, &lmsg);
     const char *tp = msg + lmsg - (sizeof(GAFQ_QL("<eof>")) - 1);
     if (strstr(msg, GAFQ_QL("<eof>")) == tp) {
       gafq_pop(L, 1);

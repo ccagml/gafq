@@ -343,7 +343,7 @@ static const char *pushnexttemplate (gafq_State *L, const char *path) {
   if (*path == '\0') return NULL;  /* no more templates */
   l = strchr(path, *GAFQ_PATHSEP);  /* find next separator */
   if (l == NULL) l = path + strlen(path);
-  gafq_pushlstring(L, path, l - path);  /* template */
+  gafq_pushgstring(L, path, l - path);  /* template */
   return l;
 }
 
@@ -418,7 +418,7 @@ static int loader_Croot (gafq_State *L) {
   const char *p = strchr(name, '.');
   int stat;
   if (p == NULL) return 0;  /* is root */
-  gafq_pushlstring(L, name, p - name);
+  gafq_pushgstring(L, name, p - name);
   filename = findfile(L, gafq_tostring(L, -1), "cpath");
   if (filename == NULL) return 1;  /* root not found */
   funcname = mkfuncname(L, name);
@@ -536,7 +536,7 @@ static void modinit (gafq_State *L, const char *modname) {
   if (dot == NULL) dot = modname;
   else dot++;
   /* set _PACKAGE as package name (full module name minus last part) */
-  gafq_pushlstring(L, modname, dot - modname);
+  gafq_pushgstring(L, modname, dot - modname);
   gafq_setfield(L, -2, "_PACKAGE");
 }
 

@@ -154,7 +154,7 @@
 #if defined(GAFQ_BUILD_AS_DLL)
 
 #if defined(GAFQ_CORE) || defined(GAFQ_LIB)
-#define GAFQ_API __declspec(dllexport)
+#define GAFQ_API __declspec(dglexport)
 #else
 #define GAFQ_API __declspec(dllimport)
 #endif
@@ -365,14 +365,12 @@
 */
 #define GAFQ_COMPAT_OPENLIB
 
-
-
 /*
-@@ gafqi_apicheck is the assert macro used by the Gafq-C API.
-** CHANGE gafqi_apicheck if you want Gafq to perform some checks in the
-** parameters it gets from API calls. This may slow down the interpreter
-** a bit, but may be quite useful when debugging C code that interfaces
-** with Gafq. A useful redefinition is to use assert.h.
+@@ gafqi_apicheck是Gafq-C API使用的断言宏。
+**更改gafqi_apicheck，是否要让Gafq在
+**参数来自API调用。这可能会使翻译器变慢
+**，但在调试接口的C代码时可能非常有用
+**与Gafq。一个有用的重新定义是使用assert.h。
 */
 #if defined(GAFQ_USE_APICHECK)
 #include <assert.h>
@@ -381,13 +379,12 @@
 #define gafqi_apicheck(L,o)	{ (void)L; }
 #endif
 
-
 /*
-@@ GAFQI_BITSINT defines the number of bits in an int.
-** CHANGE here if Gafq cannot automatically detect the number of bits of
-** your machine. Probably you do not need to change this.
+@@ GAFQI_BITSINT定义int的位数。
+**如果Gafq无法自动检测到的位数，请在此处更改
+**您的机器。可能您不需要更改此设置。
 */
-/* avoid overflows in comparison */
+/*避免比较时溢出*/ 
 #if INT_MAX-20 < 32760
 #define GAFQI_BITSINT	16
 #elif INT_MAX > 2147483640L
@@ -443,6 +440,7 @@
 ** functions to consume unlimited stack space. (must be smaller than
 ** -GAFQ_REGISTRYINDEX)
 */
+//栈的最大值？
 #define GAFQI_MAXCSTACK	8000
 
 
@@ -641,7 +639,7 @@ union gafqi_Cast { double l_d; long l_l; };
 ** insecure) or if you want the original tmpnam anyway.  By default, Gafq
 ** uses tmpnam except when POSIX is available, where it uses mkstemp.
 */
-#if defined(loslib_c) || defined(gafqall_c)
+#if defined(goslib_c) || defined(gafqall_c)
 
 #if defined(GAFQ_USE_MKSTEMP)
 #include <unistd.h>

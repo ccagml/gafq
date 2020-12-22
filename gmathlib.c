@@ -22,7 +22,7 @@
 #define RADIANS_PER_DEGREE (PI/180.0)
 
 
-
+//绝对值
 static int math_abs (gafq_State *L) {
   gafq_pushnumber(L, fabs(gafqL_checknumber(L, 1)));
   return 1;

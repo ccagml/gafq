@@ -146,7 +146,7 @@ GAFQ_API int            (gafq_lessthan) (gafq_State *L, int idx1, int idx2);
 GAFQ_API gafq_Number      (gafq_tonumber) (gafq_State *L, int idx);
 GAFQ_API gafq_Integer     (gafq_tointeger) (gafq_State *L, int idx);
 GAFQ_API int             (gafq_toboolean) (gafq_State *L, int idx);
-GAFQ_API const char     *(gafq_tolstring) (gafq_State *L, int idx, size_t *len);
+GAFQ_API const char     *(gafq_togstring) (gafq_State *L, int idx, size_t *len);
 GAFQ_API size_t          (gafq_objlen) (gafq_State *L, int idx);
 GAFQ_API gafq_CFunction   (gafq_tocfunction) (gafq_State *L, int idx);
 GAFQ_API void	       *(gafq_touserdata) (gafq_State *L, int idx);
@@ -160,7 +160,7 @@ GAFQ_API const void     *(gafq_topointer) (gafq_State *L, int idx);
 GAFQ_API void  (gafq_pushnil) (gafq_State *L);
 GAFQ_API void  (gafq_pushnumber) (gafq_State *L, gafq_Number n);
 GAFQ_API void  (gafq_pushinteger) (gafq_State *L, gafq_Integer n);
-GAFQ_API void  (gafq_pushlstring) (gafq_State *L, const char *s, size_t l);
+GAFQ_API void  (gafq_pushgstring) (gafq_State *L, const char *s, size_t l);
 GAFQ_API void  (gafq_pushstring) (gafq_State *L, const char *s);
 GAFQ_API const char *(gafq_pushvfstring) (gafq_State *L, const char *fmt,
                                                       va_list argp);
@@ -271,12 +271,12 @@ GAFQ_API void gafq_setallocf (gafq_State *L, gafq_Alloc f, void *ud);
 #define gafq_isnoneornil(L, n)	(gafq_type(L, (n)) <= 0)
 
 #define gafq_pushliteral(L, s)	\
-	gafq_pushlstring(L, "" s, (sizeof(s)/sizeof(char))-1)
+	gafq_pushgstring(L, "" s, (sizeof(s)/sizeof(char))-1)
 
 #define gafq_setglobal(L,s)	gafq_setfield(L, GAFQ_GLOBALSINDEX, (s))
 #define gafq_getglobal(L,s)	gafq_getfield(L, GAFQ_GLOBALSINDEX, (s))
 
-#define gafq_tostring(L,i)	gafq_tolstring(L, (i), NULL)
+#define gafq_tostring(L,i)	gafq_togstring(L, (i), NULL)
 
 
 

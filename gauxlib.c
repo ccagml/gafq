@@ -142,7 +142,7 @@ GAFQLIB_API void gafqL_checkstack (gafq_State *L, int space, const char *mes) {
     gafqL_error(L, "stack overflow (%s)", mes);
 }
 
-
+//检查类型是不是最后一个参数
 GAFQLIB_API void gafqL_checktype (gafq_State *L, int narg, int t) {
   if (gafq_type(L, narg) != t)
     tag_error(L, narg, t);
@@ -155,28 +155,28 @@ GAFQLIB_API void gafqL_checkany (gafq_State *L, int narg) {
 }
 
 
-GAFQLIB_API const char *gafqL_checklstring (gafq_State *L, int narg, size_t *len) {
-  const char *s = gafq_tolstring(L, narg, len);
+GAFQLIB_API const char *gafqL_checkgstring (gafq_State *L, int narg, size_t *len) {
+  const char *s = gafq_togstring(L, narg, len);
   if (!s) tag_error(L, narg, GAFQ_TSTRING);
   return s;
 }
 
 
-GAFQLIB_API const char *gafqL_optlstring (gafq_State *L, int narg,
+GAFQLIB_API const char *gafqL_optgstring (gafq_State *L, int narg,
                                         const char *def, size_t *len) {
   if (gafq_isnoneornil(L, narg)) {
     if (len)
       *len = (def ? strlen(def) : 0);
     return def;
   }
-  else return gafqL_checklstring(L, narg, len);
+  else return gafqL_checkgstring(L, narg, len);
 }
 
-
+//检查数字
 GAFQLIB_API gafq_Number gafqL_checknumber (gafq_State *L, int narg) {
   gafq_Number d = gafq_tonumber(L, narg);
   if (d == 0 && !gafq_isnumber(L, narg))  /* avoid extra test when d is not 0 */
-    tag_error(L, narg, GAFQ_TNUMBER);
+    tag_error(L, narg, GAFQ_TNUMBER); // 输出类型错误的打印
   return d;
 }
 
@@ -344,7 +344,7 @@ GAFQLIB_API const char *gafqL_gsub (gafq_State *L, const char *s, const char *p,
   gafqL_Buffer b;
   gafqL_buffinit(L, &b);
   while ((wild = strstr(s, p)) != NULL) {
-    gafqL_addlstring(&b, s, wild - s);  /* push prefix */
+    gafqL_addgstring(&b, s, wild - s);  /* push prefix */
     gafqL_addstring(&b, r);  /* push replacement in place of pattern */
     s = wild + l;  /* continue after `p' */
   }
@@ -361,12 +361,12 @@ GAFQLIB_API const char *gafqL_findtable (gafq_State *L, int idx,
   do {
     e = strchr(fname, '.');
     if (e == NULL) e = fname + strlen(fname);
-    gafq_pushlstring(L, fname, e - fname);
+    gafq_pushgstring(L, fname, e - fname);
     gafq_rawget(L, -2);
     if (gafq_isnil(L, -1)) {  /* no such field? */
       gafq_pop(L, 1);  /* remove this nil */
       gafq_createtable(L, 0, (*e == '.' ? 1 : szhint)); /* new table for field */
-      gafq_pushlstring(L, fname, e - fname);
+      gafq_pushgstring(L, fname, e - fname);
       gafq_pushvalue(L, -2);
       gafq_settable(L, -4);  /* set new table into field */
     }
@@ -394,12 +394,12 @@ GAFQLIB_API const char *gafqL_findtable (gafq_State *L, int idx,
 
 #define LIMIT	(GAFQ_MINSTACK/2)
 
-
+//清空字节流，把字节流放入状态里
 static int emptybuffer (gafqL_Buffer *B) {
   size_t l = bufflen(B);
   if (l == 0) return 0;  /* put nothing on stack */
   else {
-    gafq_pushlstring(B->L, B->buffer, l);
+    gafq_pushgstring(B->L, B->buffer, l);
     B->p = B->buffer;
     B->lvl++;
     return 1;
@@ -433,17 +433,17 @@ GAFQLIB_API char *gafqL_prepbuffer (gafqL_Buffer *B) {
 }
 
 
-GAFQLIB_API void gafqL_addlstring (gafqL_Buffer *B, const char *s, size_t l) {
+GAFQLIB_API void gafqL_addgstring (gafqL_Buffer *B, const char *s, size_t l) {
   while (l--)
     gafqL_addchar(B, *s++);
 }
 
 
 GAFQLIB_API void gafqL_addstring (gafqL_Buffer *B, const char *s) {
-  gafqL_addlstring(B, s, strlen(s));
+  gafqL_addgstring(B, s, strlen(s));
 }
 
-
+//好像是把字节流放回状态里
 GAFQLIB_API void gafqL_pushresult (gafqL_Buffer *B) {
   emptybuffer(B);
   gafq_concat(B->L, B->lvl);
@@ -454,7 +454,7 @@ GAFQLIB_API void gafqL_pushresult (gafqL_Buffer *B) {
 GAFQLIB_API void gafqL_addvalue (gafqL_Buffer *B) {
   gafq_State *L = B->L;
   size_t vl;
-  const char *s = gafq_tolstring(L, -1, &vl);
+  const char *s = gafq_togstring(L, -1, &vl);
   if (vl <= bufffree(B)) {  /* fit into buffer? */
     memcpy(B->p, s, vl);  /* put it there */
     B->p += vl;

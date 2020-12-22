@@ -20,13 +20,13 @@
 #include "gdebug.h"
 #include "gdo.h"
 #include "gfunc.h"
-#include "lobject.h"
-#include "lopcodes.h"
-#include "lstate.h"
-#include "lstring.h"
-#include "ltable.h"
-#include "ltm.h"
-#include "lvm.h"
+#include "gobject.h"
+#include "gopcodes.h"
+#include "gstate.h"
+#include "gstring.h"
+#include "gtable.h"
+#include "gtm.h"
+#include "gvm.h"
 
 
 

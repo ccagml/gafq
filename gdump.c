@@ -11,9 +11,9 @@
 
 #include "gafq.h"
 
-#include "lobject.h"
-#include "lstate.h"
-#include "lundump.h"
+#include "gobject.h"
+#include "gstate.h"
+#include "gundump.h"
 
 typedef struct {
  gafq_State* L;

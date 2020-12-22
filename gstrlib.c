@@ -27,49 +27,50 @@
 // 获取字符串长度
 static int str_len (gafq_State *L) {
   size_t l;
-  gafqL_checklstring(L, 1, &l);
+  gafqL_checkgstring(L, 1, &l);
   gafq_pushinteger(L, l);
   return 1;
 }
 
-
+// ptrdiff_t 是预定义的内容好像跟gcc有关系 https://stackoverflow.com/questions/38032035/ptrdiff-type-vs-ptrdiff-t
 static ptrdiff_t posrelat (ptrdiff_t pos, size_t len) {
   /* relative string position: negative means back from end */
   if (pos < 0) pos += (ptrdiff_t)len + 1;
   return (pos >= 0) ? pos : 0;
 }
 
-
+//这个截取字符串
 static int str_sub (gafq_State *L) {
   size_t l;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  // 取出字符串， l是字符串长度
+  const char *s = gafqL_checkgstring(L, 1, &l);
   ptrdiff_t start = posrelat(gafqL_checkinteger(L, 2), l);
   ptrdiff_t end = posrelat(gafqL_optinteger(L, 3, -1), l);
   if (start < 1) start = 1;
   if (end > (ptrdiff_t)l) end = (ptrdiff_t)l;
   if (start <= end)
-    gafq_pushlstring(L, s+start-1, end-start+1);
+    gafq_pushgstring(L, s+start-1, end-start+1);
   else gafq_pushliteral(L, "");
   return 1;
 }
 
-
+//反转字符串
 static int str_reverse (gafq_State *L) {
   size_t l;
   gafqL_Buffer b;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   gafqL_buffinit(L, &b);
   while (l--) gafqL_addchar(&b, s[l]);
   gafqL_pushresult(&b);
   return 1;
 }
 
-
+//转成消协
 static int str_lower (gafq_State *L) {
   size_t l;
   size_t i;
   gafqL_Buffer b;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   gafqL_buffinit(L, &b);
   for (i=0; i<l; i++)
     gafqL_addchar(&b, tolower(uchar(s[i])));
@@ -77,12 +78,12 @@ static int str_lower (gafq_State *L) {
   return 1;
 }
 
-
+//转成大写
 static int str_upper (gafq_State *L) {
   size_t l;
   size_t i;
   gafqL_Buffer b;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   gafqL_buffinit(L, &b);
   for (i=0; i<l; i++)
     gafqL_addchar(&b, toupper(uchar(s[i])));
@@ -90,22 +91,23 @@ static int str_upper (gafq_State *L) {
   return 1;
 }
 
+//看着是复制n次字符串
 static int str_rep (gafq_State *L) {
   size_t l;
   gafqL_Buffer b;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   int n = gafqL_checkint(L, 2);
   gafqL_buffinit(L, &b);
   while (n-- > 0)
-    gafqL_addlstring(&b, s, l);
+    gafqL_addgstring(&b, s, l);
   gafqL_pushresult(&b);
   return 1;
 }
 
-
+//返回char数字，可以有2个参数范围
 static int str_byte (gafq_State *L) {
   size_t l;
-  const char *s = gafqL_checklstring(L, 1, &l);
+  const char *s = gafqL_checkgstring(L, 1, &l);
   ptrdiff_t posi = posrelat(gafqL_optinteger(L, 2, 1), l);
   ptrdiff_t pose = posrelat(gafqL_optinteger(L, 3, posi), l);
   int n, i;
@@ -121,7 +123,7 @@ static int str_byte (gafq_State *L) {
   return n;
 }
 
-
+//取n个参数，把参数个数的整数转成字符
 static int str_char (gafq_State *L) {
   int n = gafq_gettop(L);  /* number of arguments */
   int i;
@@ -136,14 +138,14 @@ static int str_char (gafq_State *L) {
   return 1;
 }
 
-
+//看着是把b写到B字符流里面
 static int writer (gafq_State *L, const void* b, size_t size, void* B) {
   (void)L;
-  gafqL_addlstring((gafqL_Buffer*) B, (const char *)b, size);
+  gafqL_addgstring((gafqL_Buffer*) B, (const char *)b, size);
   return 0;
 }
 
-
+//看着是拷贝，？是不是递归需要？
 static int str_dump (gafq_State *L) {
   gafqL_Buffer b;
   gafqL_checktype(L, 1, GAFQ_TFUNCTION);
@@ -441,7 +443,7 @@ static const char *match (MatchState *ms, const char *s, const char *p) {
 
 
 
-static const char *lmemfind (const char *s1, size_t l1,
+static const char *gmemfind (const char *s1, size_t l1,
                                const char *s2, size_t l2) {
   if (l2 == 0) return s1;  /* empty strings are everywhere */
   else if (l2 > l1) return NULL;  /* avoids a negative `l1' */
@@ -467,7 +469,7 @@ static void push_onecapture (MatchState *ms, int i, const char *s,
                                                     const char *e) {
   if (i >= ms->level) {
     if (i == 0)  /* ms->level == 0, too */
-      gafq_pushlstring(ms->L, s, e - s);  /* add whole match */
+      gafq_pushgstring(ms->L, s, e - s);  /* add whole match */
     else
       gafqL_error(ms->L, "invalid capture index");
   }
@@ -477,7 +479,7 @@ static void push_onecapture (MatchState *ms, int i, const char *s,
     if (l == CAP_POSITION)
       gafq_pushinteger(ms->L, ms->capture[i].init - ms->src_init + 1);
     else
-      gafq_pushlstring(ms->L, ms->capture[i].init, l);
+      gafq_pushgstring(ms->L, ms->capture[i].init, l);
   }
 }
 
@@ -494,15 +496,15 @@ static int push_captures (MatchState *ms, const char *s, const char *e) {
 
 static int str_find_aux (gafq_State *L, int find) {
   size_t l1, l2;
-  const char *s = gafqL_checklstring(L, 1, &l1);
-  const char *p = gafqL_checklstring(L, 2, &l2);
+  const char *s = gafqL_checkgstring(L, 1, &l1);
+  const char *p = gafqL_checkgstring(L, 2, &l2);
   ptrdiff_t init = posrelat(gafqL_optinteger(L, 3, 1), l1) - 1;
   if (init < 0) init = 0;
   else if ((size_t)(init) > l1) init = (ptrdiff_t)l1;
   if (find && (gafq_toboolean(L, 4) ||  /* explicit request? */
       strpbrk(p, SPECIALS) == NULL)) {  /* or no special characters? */
     /* do a plain search */
-    const char *s2 = lmemfind(s+init, l1-init, p, l2);
+    const char *s2 = gmemfind(s+init, l1-init, p, l2);
     if (s2) {
       gafq_pushinteger(L, s2-s+1);
       gafq_pushinteger(L, s2-s+l2);
@@ -548,7 +550,7 @@ static int str_match (gafq_State *L) {
 static int gmatch_aux (gafq_State *L) {
   MatchState ms;
   size_t ls;
-  const char *s = gafq_tolstring(L, gafq_upvalueindex(1), &ls);
+  const char *s = gafq_togstring(L, gafq_upvalueindex(1), &ls);
   const char *p = gafq_tostring(L, gafq_upvalueindex(2));
   const char *src;
   ms.L = L;
@@ -590,7 +592,7 @@ static int gfind_nodef (gafq_State *L) {
 static void add_s (MatchState *ms, gafqL_Buffer *b, const char *s,
                                                    const char *e) {
   size_t l, i;
-  const char *news = gafq_tolstring(ms->L, 3, &l);
+  const char *news = gafq_togstring(ms->L, 3, &l);
   for (i = 0; i < l; i++) {
     if (news[i] != L_ESC)
       gafqL_addchar(b, news[i]);
@@ -599,7 +601,7 @@ static void add_s (MatchState *ms, gafqL_Buffer *b, const char *s,
       if (!isdigit(uchar(news[i])))
         gafqL_addchar(b, news[i]);
       else if (news[i] == '0')
-          gafqL_addlstring(b, s, e - s);
+          gafqL_addgstring(b, s, e - s);
       else {
         push_onecapture(ms, news[i] - '1', s, e);
         gafqL_addvalue(b);  /* add capture to accumulated result */
@@ -633,7 +635,7 @@ static void add_value (MatchState *ms, gafqL_Buffer *b, const char *s,
   }
   if (!gafq_toboolean(L, -1)) {  /* nil or false? */
     gafq_pop(L, 1);
-    gafq_pushlstring(L, s, e - s);  /* keep original text */
+    gafq_pushgstring(L, s, e - s);  /* keep original text */
   }
   else if (!gafq_isstring(L, -1))
     gafqL_error(L, "invalid replacement value (a %s)", gafqL_typename(L, -1)); 
@@ -643,7 +645,7 @@ static void add_value (MatchState *ms, gafqL_Buffer *b, const char *s,
 
 static int str_gsub (gafq_State *L) {
   size_t srcl;
-  const char *src = gafqL_checklstring(L, 1, &srcl);
+  const char *src = gafqL_checkgstring(L, 1, &srcl);
   const char *p = gafqL_checkstring(L, 2);
   int  tr = gafq_type(L, 3);
   int max_s = gafqL_optint(L, 4, srcl+1);
@@ -673,7 +675,7 @@ static int str_gsub (gafq_State *L) {
     else break;
     if (anchor) break;
   }
-  gafqL_addlstring(&b, src, ms.src_end-src);
+  gafqL_addgstring(&b, src, ms.src_end-src);
   gafqL_pushresult(&b);
   gafq_pushinteger(L, n);  /* number of substitutions */
   return 2;
@@ -695,7 +697,7 @@ static int str_gsub (gafq_State *L) {
 
 static void addquoted (gafq_State *L, gafqL_Buffer *b, int arg) {
   size_t l;
-  const char *s = gafqL_checklstring(L, arg, &l);
+  const char *s = gafqL_checkgstring(L, arg, &l);
   gafqL_addchar(b, '"');
   while (l--) {
     switch (*s) {
@@ -705,11 +707,11 @@ static void addquoted (gafq_State *L, gafqL_Buffer *b, int arg) {
         break;
       }
       case '\r': {
-        gafqL_addlstring(b, "\\r", 2);
+        gafqL_addgstring(b, "\\r", 2);
         break;
       }
       case '\0': {
-        gafqL_addlstring(b, "\\000", 4);
+        gafqL_addgstring(b, "\\000", 4);
         break;
       }
       default: {
@@ -757,7 +759,7 @@ static int str_format (gafq_State *L) {
   int top = gafq_gettop(L);
   int arg = 1;
   size_t sfl;
-  const char *strfrmt = gafqL_checklstring(L, arg, &sfl);
+  const char *strfrmt = gafqL_checkgstring(L, arg, &sfl);
   const char *strfrmt_end = strfrmt+sfl;
   gafqL_Buffer b;
   gafqL_buffinit(L, &b);
@@ -798,7 +800,7 @@ static int str_format (gafq_State *L) {
         }
         case 's': {
           size_t l;
-          const char *s = gafqL_checklstring(L, arg, &l);
+          const char *s = gafqL_checkgstring(L, arg, &l);
           if (!strchr(form, '.') && l >= 100) {
             /* no precision and string is too long to be formatted;
                keep original string */
@@ -816,7 +818,7 @@ static int str_format (gafq_State *L) {
                                GAFQ_QL("format"), *(strfrmt - 1));
         }
       }
-      gafqL_addlstring(&b, buff, strlen(buff));
+      gafqL_addgstring(&b, buff, strlen(buff));
     }
   }
   gafqL_pushresult(&b);

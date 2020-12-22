@@ -145,14 +145,14 @@ static int tconcat (gafq_State *L) {
   gafqL_Buffer b;
   size_t lsep;
   int i, last;
-  const char *sep = gafqL_optlstring(L, 2, "", &lsep);
+  const char *sep = gafqL_optgstring(L, 2, "", &lsep);
   gafqL_checktype(L, 1, GAFQ_TTABLE);
   i = gafqL_optint(L, 3, 1);
   last = gafqL_opt(L, gafqL_checkint, 4, gafqL_getn(L, 1));
   gafqL_buffinit(L, &b);
   for (; i < last; i++) {
     addfield(L, &b, i);
-    gafqL_addlstring(&b, sep, lsep);
+    gafqL_addgstring(&b, sep, lsep);
   }
   if (i == last)  /* add last value (if interval was not empty) */
     addfield(L, &b, i);

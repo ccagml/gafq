@@ -7,10 +7,10 @@
 #ifndef gcode_h
 #define gcode_h
 
-#include "llex.h"
-#include "lobject.h"
-#include "lopcodes.h"
-#include "lparser.h"
+#include "glex.h"
+#include "gobject.h"
+#include "gopcodes.h"
+#include "gparser.h"
 
 
 /*

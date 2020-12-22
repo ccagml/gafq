@@ -8,7 +8,7 @@
 #define gapi_h
 
 
-#include "lobject.h"
+#include "gobject.h"
 
 
 GAFQI_FUNC void gafqA_pushobject (gafq_State *L, const TValue *o);

@@ -15,13 +15,13 @@
 #include "gcode.h"
 #include "gdebug.h"
 #include "gdo.h"
-#include "lgc.h"
-#include "llex.h"
-#include "lmem.h"
-#include "lobject.h"
-#include "lopcodes.h"
-#include "lparser.h"
-#include "ltable.h"
+#include "ggc.h"
+#include "glex.h"
+#include "gmem.h"
+#include "gobject.h"
+#include "gopcodes.h"
+#include "gparser.h"
+#include "gtable.h"
 
 
 #define hasjumps(e)	((e)->t != (e)->f)

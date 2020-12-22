@@ -286,7 +286,7 @@ static int read_number (gafq_State *L, FILE *f) {
 static int test_eof (gafq_State *L, FILE *f) {
   int c = getc(f);
   ungetc(c, f);
-  gafq_pushlstring(L, NULL, 0);
+  gafq_pushgstring(L, NULL, 0);
   return (c != EOF);
 }
 
@@ -421,7 +421,7 @@ static int g_write (gafq_State *L, FILE *f, int arg) {
     }
     else {
       size_t l;
-      const char *s = gafqL_checklstring(L, arg, &l);
+      const char *s = gafqL_checkgstring(L, arg, &l);
       status = status && (fwrite(s, sizeof(char), l, f) == l);
     }
   }

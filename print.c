@@ -11,9 +11,9 @@
 #define GAFQ_CORE
 
 #include "gdebug.h"
-#include "lobject.h"
-#include "lopcodes.h"
-#include "lundump.h"
+#include "gobject.h"
+#include "gopcodes.h"
+#include "gundump.h"
 
 #define PrintFunction	gafqU_print
 
