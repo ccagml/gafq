@@ -32,6 +32,8 @@ const TValue gafqO_nilobject_ = {{NULL}, GAFQ_TNIL};
 ** (eeeeexxx), where the real value is (1xxx) * 2^(eeeee - 1) if
 ** eeeee != 0 and (xxx) otherwise.
 */
+
+// 整数转成浮点数
 int gafqO_int2fb (unsigned int x) {
   int e = 0;  /* expoent */
   while (x >= 16) {
@@ -68,7 +70,7 @@ int gafqO_log2 (unsigned int x) {
 
 }
 
-
+// 看着是比较两个对象有没有相等
 int gafqO_rawequalObj (const TValue *t1, const TValue *t2) {
   if (ttype(t1) != ttype(t2)) return 0;
   else switch (ttype(t1)) {
