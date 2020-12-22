@@ -88,7 +88,7 @@ int gafqO_rawequalObj (const TValue *t1, const TValue *t2) {
   }
 }
 
-
+// 字符串转整数
 int gafqO_str2d (const char *s, gafq_Number *result) {
   char *endptr;
   *result = gafq_str2number(s, &endptr);
