@@ -102,7 +102,7 @@ int gafqO_str2d (const char *s, gafq_Number *result) {
 }
 
 
-
+// 状态顶放入字符串
 static void pushstr (gafq_State *L, const char *str) {
   setsvalue2s(L, L->top, gafqS_new(L, str));
   incr_top(L);

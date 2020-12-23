@@ -71,7 +71,7 @@ static TString *newlstr (gafq_State *L, const char *str, size_t l,
   return ts;
 }
 
-
+//创建一个新的字符串
 TString *gafqS_newlstr (gafq_State *L, const char *str, size_t l) {
   GCObject *o;
   unsigned int h = cast(unsigned int, l);  /* seed */

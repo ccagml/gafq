@@ -70,7 +70,7 @@ typedef GAFQI_UACNUMBER l_uacNumber;
 #define UNUSED(x)	((void)(x))	/* to avoid warnings */
 #endif
 
-
+// 看着是强制类型转换
 #ifndef cast
 #define cast(t, exp)	((t)(exp))
 #endif
