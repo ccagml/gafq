@@ -623,7 +623,7 @@ GAFQLIB_API int (gafqL_loadstring) (gafq_State *L, const char *s) {
 
 /* }====================================================== */
 
-
+//分配
 static void *l_alloc (void *ud, void *ptr, size_t osize, size_t nsize) {
   (void)ud;
   (void)osize;
@@ -631,8 +631,15 @@ static void *l_alloc (void *ud, void *ptr, size_t osize, size_t nsize) {
     free(ptr);
     return NULL;
   }
-  else
+  else{
+    //C 库函数 void *realloc(void *ptr, size_t size) 尝试重新调整之前调用 malloc 或 calloc 所分配的 ptr 所指向的内存块的大小。
+    //     参数
+    // ptr -- 指针指向一个要重新分配内存的内存块，该内存块之前是通过调用 malloc、calloc 或 realloc 进行分配内存的。如果为空指针，则会分配一个新的内存块，且函数返回一个指向它的指针。
+    // size -- 内存块的新的大小，以字节为单位。如果大小为 0，且 ptr 指向一个已存在的内存块，则 ptr 所指向的内存块会被释放，并返回一个空指针。
+    // 返回值
+    // 该函数返回一个指针 ，指向重新分配大小的内存。如果请求失败，则返回 NULL。
     return realloc(ptr, nsize);
+  }
 }
 
 
@@ -643,7 +650,7 @@ static int panic (gafq_State *L) {
   return 0;
 }
 
-
+//创建状态
 GAFQLIB_API gafq_State *gafqL_newstate (void) {
   gafq_State *L = gafq_newstate(l_alloc, NULL);
   if (L) gafq_atpanic(L, &panic);

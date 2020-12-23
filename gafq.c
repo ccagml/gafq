@@ -373,9 +373,10 @@ static int pmain (gafq_State *L) {
   return 0;
 }
 
-
+//入口
 int main (int argc, char **argv) {
   int status;
+  // 存命令
   struct Smain s;
   gafq_State *L = gafq_open();  /* create state */
   if (L == NULL) {

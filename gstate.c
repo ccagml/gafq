@@ -139,7 +139,7 @@ void gafqE_freethread (gafq_State *L, gafq_State *L1) {
   gafqM_freemem(L, fromstate(L1), state_size(gafq_State));
 }
 
-
+// 创建新状态，f是一个申请内存的方法？
 GAFQ_API gafq_State *gafq_newstate (gafq_Alloc f, void *ud) {
   int i;
   gafq_State *L;
