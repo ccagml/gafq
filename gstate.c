@@ -142,8 +142,8 @@ void gafqE_freethread (gafq_State *L, gafq_State *L1) {
 // 创建新状态，f是一个申请内存的方法？
 GAFQ_API gafq_State *gafq_newstate (gafq_Alloc f, void *ud) {
   int i;
-  gafq_State *L;
-  global_State *g;
+  gafq_State *L;  // 单个线程状态
+  global_State *g; // 全局线程状态
   void *l = (*f)(ud, NULL, 0, state_size(LG));
   if (l == NULL) return NULL;
   L = tostate(l);

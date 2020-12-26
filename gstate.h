@@ -64,6 +64,7 @@ typedef struct CallInfo {
 
 /*
 ** `global state', shared by all threads of this state
+** 全局状态
 */
 typedef struct global_State {
   stringtable strt;  /* hash table for strings */
@@ -96,12 +97,17 @@ typedef struct global_State {
 
 /*
 ** `per thread' state
+** 主线程创建的一个 状态?
 */
 struct gafq_State {
+  // 头,好像跟gc有关的对象都有这个东西
   CommonHeader;
-  lu_byte status;
+  lu_byte status; // char类型
+  // 栈顶
   StkId top;  /* first free slot in the stack */
+  // 当前位置
   StkId base;  /* base of current function */
+  //全局状态
   global_State *l_G;
   CallInfo *ci;  /* call info for current function */
   const Instruction *savedpc;  /* `savedpc' of current function */
@@ -117,7 +123,7 @@ struct gafq_State {
   lu_byte allowhook;
   int basehookcount;
   int hookcount;
-  gafq_Hook hook;
+  gafq_Hook hook;  // 跟debug有关
   TValue l_gt;  /* table of globals */
   TValue env;  /* temporary place for environments */
   GCObject *openupval;  /* list of open upvalues in this stack */
