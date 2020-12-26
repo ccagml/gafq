@@ -834,12 +834,12 @@ struct CCallS {  /* data to `f_Ccall' */
   void *ud;
 };
 
-
+// 在保护模式中运行函数
 static void f_Ccall (gafq_State *L, void *ud) {
   struct CCallS *c = cast(struct CCallS *, ud);
   Closure *cl;
   cl = gafqF_newCclosure(L, 0, getcurrenv(L));
-  cl->c.f = c->func;
+  cl->c.f = c->func; // 这个是gafq.c中的pmain
   setclvalue(L, L->top, cl);  /* push function */
   api_incr_top(L);
   setpvalue(L->top, c->ud);  /* push only argument */
@@ -849,7 +849,7 @@ static void f_Ccall (gafq_State *L, void *ud) {
 
 
 GAFQ_API int gafq_cpcall (gafq_State *L, gafq_CFunction func, void *ud) {
-  struct CCallS c;
+  struct CCallS c; //调用信息, gafq传过来的是pmain 和输入命令行
   int status;
   gafq_lock(L);
   c.func = func;

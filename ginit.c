@@ -26,7 +26,7 @@ static const gafqL_Reg gafqlibs[] = {
   {NULL, NULL}
 };
 
-
+// 好像是初始化一些调用函数啥的
 GAFQLIB_API void gafqL_openlibs (gafq_State *L) {
   const gafqL_Reg *lib = gafqlibs;
   for (; lib->func; lib++) {

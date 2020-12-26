@@ -149,7 +149,7 @@ GAFQ_API gafq_State *gafq_newstate (gafq_Alloc f, void *ud) {
   L = tostate(l);
   g = &((LG *)L)->g;
   L->next = NULL;
-  L->tt = GAFQ_TTHREAD;
+  L->tt = GAFQ_TTHREAD; // 设置这个数据的类型
   g->currentwhite = bit2mask(WHITE0BIT, FIXEDBIT);
   L->marked = gafqC_white(g);
   set2bits(L->marked, FIXEDBIT, SFIXEDBIT);
@@ -185,6 +185,7 @@ GAFQ_API gafq_State *gafq_newstate (gafq_Alloc f, void *ud) {
     L = NULL;
   }
   else
+    // 创建线程的扩展操作 
     gafqi_userstateopen(L);
   return L;
 }

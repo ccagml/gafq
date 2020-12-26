@@ -336,16 +336,24 @@ struct Smain {
   int status;
 };
 
-
+// 保护运行一开始传入的方法
+// pmain(gafq_State * L) (\root\gafq\gafq.c:341)
+// gafqD_precall(gafq_State * L, StkId func, int nresults) (\root\gafq\gdo.c:320)
+// gafqD_call(gafq_State * L, StkId func, int nResults) (\root\gafq\gdo.c:377)
+// f_Ccall(gafq_State * L, void * ud) (\root\gafq\gapi.c:847)
+// gafqD_rawrunprotected(gafq_State * L, Pfunc f, void * ud) (\root\gafq\gdo.c:116)
+// gafqD_pcall(gafq_State * L, Pfunc func, void * u, ptrdiff_t old_top, ptrdiff_t ef) (\root\gafq\gdo.c:464)
+// gafq_cpcall(gafq_State * L, gafq_CFunction func, void * ud) (\root\gafq\gapi.c:857)
+// main(int argc, char ** argv) (\root\gafq\gafq.c:388)
 static int pmain (gafq_State *L) {
-  struct Smain *s = (struct Smain *)gafq_touserdata(L, 1);
+  struct Smain *s = (struct Smain *)gafq_touserdata(L, 1);  // 传进来的启动命令文件参数
   char **argv = s->argv;
   int script;
   int has_i = 0, has_v = 0, has_e = 0;
   globalL = L;
   if (argv[0] && argv[0][0]) progname = argv[0];
   gafq_gc(L, GAFQ_GCSTOP, 0);  /* stop collector during initialization */
-  gafqL_openlibs(L);  /* open libraries */
+  gafqL_openlibs(L);  /* open libraries */ // 好像是初始化一些调用函数啥的
   gafq_gc(L, GAFQ_GCRESTART, 0);
   s->status = handle_gafqinit(L);
   if (s->status != 0) return 0;

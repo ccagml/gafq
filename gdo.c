@@ -107,7 +107,7 @@ void gafqD_throw (gafq_State *L, int errcode) {
   }
 }
 
-
+// 在保护模式中运行函数f 启动时对应gapi中的f_Ccall
 int gafqD_rawrunprotected (gafq_State *L, Pfunc f, void *ud) {
   struct gafq_longjmp lj;
   lj.status = 0;
@@ -367,6 +367,7 @@ int gafqD_poscall (gafq_State *L, StkId firstResult) {
 ** When returns, all the results are on the stack, starting at the original
 ** function position.
 */ 
+// 普通调用函数
 void gafqD_call (gafq_State *L, StkId func, int nResults) {
   if (++L->nCcalls >= GAFQI_MAXCCALLS) {
     if (L->nCcalls == GAFQI_MAXCCALLS)
@@ -452,7 +453,9 @@ GAFQ_API int gafq_yield (gafq_State *L, int nresults) {
   return -1;
 }
 
-
+// 保护模式call： func为要调用的回调函数，u为用户数据,
+// old_top 旧的栈顶，即pcall之前的栈顶
+// ef 为错误处理函数的绝对偏移
 int gafqD_pcall (gafq_State *L, Pfunc func, void *u,
                 ptrdiff_t old_top, ptrdiff_t ef) {
   int status;
@@ -461,10 +464,13 @@ int gafqD_pcall (gafq_State *L, Pfunc func, void *u,
   lu_byte old_allowhooks = L->allowhook;
   ptrdiff_t old_errfunc = L->errfunc;
   L->errfunc = ef;
+  // 保护模式下调用回调函数
   status = gafqD_rawrunprotected(L, func, u);
   if (status != 0) {  /* an error occurred? */
-    StkId oldtop = restorestack(L, old_top);
-    gafqF_close(L, oldtop);  /* close eventual pending closures */
+                      // 如果发生错误，
+    StkId oldtop = restorestack(L, old_top); // 取出旧的栈顶：即调用pcall时的那个栈
+    gafqF_close(L, oldtop); /* close eventual pending closures */ // 把在恢复的栈上的upvalues关闭
+    // 把栈顶的错误对象设给旧栈顶，并重设栈顶
     gafqD_seterrorobj(L, status, oldtop);
     L->nCcalls = oldnCcalls;
     L->ci = restoreci(L, old_ci);
