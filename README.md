@@ -1,4 +1,4 @@
-# gafq from lua5.1.5
+# gafq from gafq5.1.5
 Recommended reading order:
 
 lmathlib.c, lstrlib.c: get familiar with the external C API. Don't bother with the pattern matcher though. Just the easy functions.
