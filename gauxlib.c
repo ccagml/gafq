@@ -548,7 +548,7 @@ static int errfile (gafq_State *L, const char *what, int fnameindex) {
   return GAFQ_ERRFILE;
 }
 
-
+//看着是加载代码文件
 GAFQLIB_API int gafqL_loadfile (gafq_State *L, const char *filename) {
   LoadF lf;
   int status, readstatus;

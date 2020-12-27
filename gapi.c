@@ -802,7 +802,7 @@ static void f_call (gafq_State *L, void *ud) {
 }
 
 
-
+// 加载文件后 docall 后的执行
 GAFQ_API int gafq_pcall (gafq_State *L, int nargs, int nresults, int errfunc) {
   struct CallS c;
   int status;

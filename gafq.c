@@ -92,7 +92,7 @@ static int traceback (gafq_State *L) {
   return 1;
 }
 
-
+//加载后文件，应该是执行
 static int docall (gafq_State *L, int narg, int clear) {
   int status;
   int base = gafq_gettop(L) - narg;  /* function index */
@@ -107,7 +107,7 @@ static int docall (gafq_State *L, int narg, int clear) {
   return status;
 }
 
-
+// 打印版本号，如果有has_v
 static void print_version (void) {
   l_message(NULL, GAFQ_RELEASE "  " GAFQ_COPYRIGHT);
 }
@@ -247,7 +247,7 @@ static int handle_script (gafq_State *L, char **argv, int n) {
   status = gafqL_loadfile(L, fname);
   gafq_insert(L, -(narg+1));
   if (status == 0)
-    status = docall(L, narg, 0);
+    status = docall(L, narg, 0);// 这边执行了文件好像
   else
     gafq_pop(L, narg);      
   return report(L, status);
@@ -290,7 +290,7 @@ static int collectargs (char **argv, int *pi, int *pv, int *pe) {
   return 0;
 }
 
-
+// 看着是解析参数
 static int runargs (gafq_State *L, char **argv, int n) {
   int i;
   for (i = 1; i < n; i++) {
@@ -357,6 +357,7 @@ static int pmain (gafq_State *L) {
   gafq_gc(L, GAFQ_GCRESTART, 0);
   s->status = handle_gafqinit(L);
   if (s->status != 0) return 0;
+  // has_v 版本号
   script = collectargs(argv, &has_i, &has_v, &has_e);
   if (script < 0) {  /* invalid args? */
     print_usage();
@@ -367,7 +368,7 @@ static int pmain (gafq_State *L) {
   s->status = runargs(L, argv, (script > 0) ? script : s->argc);
   if (s->status != 0) return 0;
   if (script)
-    s->status = handle_script(L, argv, script);
+    s->status = handle_script(L, argv, script); // 这里执行文件内容
   if (s->status != 0) return 0;
   if (has_i)
     dotty(L);
