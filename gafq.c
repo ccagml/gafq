@@ -257,7 +257,7 @@ static int handle_script (gafq_State *L, char **argv, int n) {
 /* check that argument has no extra characters at the end */
 #define notail(x)	{if ((x)[2] != '\0') return -1;}
 
-
+//解析参数?
 static int collectargs (char **argv, int *pi, int *pv, int *pe) {
   int i;
   for (i = 1; argv[i] != NULL; i++) {
