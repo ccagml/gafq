@@ -365,6 +365,7 @@ static int pmain (gafq_State *L) {
     return 0;
   }
   if (has_v) print_version();
+  //解析参数有没有l e啥的
   s->status = runargs(L, argv, (script > 0) ? script : s->argc);
   if (s->status != 0) return 0;
   if (script)

@@ -375,6 +375,7 @@ void gafqD_call (gafq_State *L, StkId func, int nResults) {
     else if (L->nCcalls >= (GAFQI_MAXCCALLS + (GAFQI_MAXCCALLS>>3)))
       gafqD_throw(L, GAFQ_ERRERR);  /* error while handing stack error */
   }
+  //好像如果是c方法gafqD_precall这里会执行, gafq方法就gafqV_execute执行
   if (gafqD_precall(L, func, nResults) == PCRGAFQ)  /* is a Gafq function? */
     gafqV_execute(L, 1);  /* call it */
   L->nCcalls--;

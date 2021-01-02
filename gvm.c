@@ -76,7 +76,7 @@ static void traceexec (gafq_State *L, const Instruction *pc) {
   }
 }
 
-
+// 不是数字加减, 会使用元表方法,在这里计算结果
 static void callTMres (gafq_State *L, StkId res, const TValue *f,
                         const TValue *p1, const TValue *p2) {
   ptrdiff_t result = savestack(L, res);
@@ -161,10 +161,10 @@ void gafqV_settable (gafq_State *L, const TValue *t, TValue *key, StkId val) {
   gafqG_runerror(L, "loop in settable");
 }
 
-
+//在gafqV_execute的加减运算,如果不是数字类型,会走到这里
 static int call_binTM (gafq_State *L, const TValue *p1, const TValue *p2,
                        StkId res, TMS event) {
-  const TValue *tm = gafqT_gettmbyobj(L, p1, event);  /* try first operand */
+  const TValue *tm = gafqT_gettmbyobj(L, p1, event);  /* try first operand */// 取出 元表方法
   if (ttisnil(tm))
     tm = gafqT_gettmbyobj(L, p2, event);  /* try second operand */
   if (ttisnil(tm)) return 0;
@@ -360,7 +360,7 @@ static void Arith (gafq_State *L, StkId ra, const TValue *rb,
 
 #define Protect(x)	{ L->savedpc = pc; {x;}; base = L->base; }
 
-
+// 这个好像是执行器中解析运算符的
 #define arith_op(op,tm) { \
         TValue *rb = RKB(i); \
         TValue *rc = RKC(i); \
@@ -373,7 +373,7 @@ static void Arith (gafq_State *L, StkId ra, const TValue *rb,
       }
 
 
-
+// 这里像是要执行gafq的内容
 void gafqV_execute (gafq_State *L, int nexeccalls) {
   LClosure *cl;
   StkId base;
@@ -404,6 +404,7 @@ void gafqV_execute (gafq_State *L, int nexeccalls) {
     gafq_assert(base <= L->top && L->top <= L->stack + L->stacksize);
     gafq_assert(L->top == L->ci->top || gafqG_checkopenop(i));
     switch (GET_OPCODE(i)) {
+      // 看着是把rbi的值赋给ra
       case OP_MOVE: {
         setobjs2s(L, ra, RB(i));
         continue;
@@ -471,6 +472,7 @@ void gafqV_execute (gafq_State *L, int nexeccalls) {
         Protect(gafqV_gettable(L, rb, RKC(i), ra));
         continue;
       }
+      //加法
       case OP_ADD: {
         arith_op(gafqi_numadd, TM_ADD);
         continue;
@@ -542,6 +544,7 @@ void gafqV_execute (gafq_State *L, int nexeccalls) {
         dojump(L, pc, GETARG_sBx(i));
         continue;
       }
+      // 计算相等
       case OP_EQ: {
         TValue *rb = RKB(i);
         TValue *rc = RKC(i);

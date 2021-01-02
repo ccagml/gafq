@@ -188,7 +188,7 @@ GAFQ_API void gafq_remove (gafq_State *L, int idx) {
   gafq_unlock(L);
 }
 
-//插入
+//插入,看着是把某个位置的值移动到顶部
 GAFQ_API void gafq_insert (gafq_State *L, int idx) {
   StkId p;
   StkId q;
@@ -802,7 +802,7 @@ static void f_call (gafq_State *L, void *ud) {
 }
 
 
-// 加载文件后 docall 后的执行
+// 加载文件后 docall 后的执行,这里设置错误函数
 GAFQ_API int gafq_pcall (gafq_State *L, int nargs, int nresults, int errfunc) {
   struct CallS c;
   int status;

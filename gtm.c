@@ -57,7 +57,7 @@ const TValue *gafqT_gettm (Table *events, TMS event, TString *ename) {
   else return tm;
 }
 
-
+//gafqV_execute中执行op运算符,如果不是数字加减,会用这个取出运算方法,元表方法
 const TValue *gafqT_gettmbyobj (gafq_State *L, const TValue *o, TMS event) {
   Table *mt;
   switch (ttype(o)) {
