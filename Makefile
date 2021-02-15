@@ -11,13 +11,13 @@ CC= gcc
 
 # CFLAGS= -O2 -Wall $(MYCFLAGS)
 # 调试
-CFLAGS= -O0 -Wall -g $(MYCFLAGS)
+CFLAGS= -O0 -Wall  -fPIC -g $(MYCFLAGS)
 AR= ar rcu
 RANLIB= ranlib
 RM= rm -f
 LIBS= -lm $(MYLIBS)
 
-MYCFLAGS=
+MYCFLAGS="-fPIC"
 MYLDFLAGS=
 MYLIBS=
 
@@ -26,6 +26,7 @@ MYLIBS=
 PLATS= aix ansi bsd freebsd generic linux macosx mingw posix solaris
 
 GAFQ_A=	libgafq.a
+GAFQ_SO = libgafq.so
 CORE_O=	gapi.o gcode.o gdebug.o gdo.o gdump.o gfunc.o ggc.o glex.o gmem.o \
 	gobject.o gopcodes.o gparser.o gstate.o gstring.o gtable.o gtm.o  \
 	gundump.o gvm.o gzio.o
@@ -39,7 +40,8 @@ GAFQC_T=	gafqc
 GAFQC_O=	gafqc.o print.o
 
 ALL_O= $(CORE_O) $(LIB_O) $(GAFQ_O) $(GAFQC_O)
-ALL_T= $(GAFQ_A) $(GAFQ_T) $(GAFQC_T)
+
+ALL_T= $(GAFQ_A) $(GAFQ_T) $(GAFQC_T) $(GAFQ_SO)
 ALL_A= $(GAFQ_A)
 
 default: $(PLAT)
@@ -56,6 +58,9 @@ $(GAFQ_A): $(CORE_O) $(LIB_O)
 
 $(GAFQ_T): $(GAFQ_O) $(GAFQ_A)
 	$(CC) -o $@ $(MYLDFLAGS) $(GAFQ_O) $(GAFQ_A) $(LIBS)
+
+$(GAFQ_SO): $(CORE_O) $(LIB_O)
+	$(CC) -shared -ldl -Wl,-soname,$(GAFQ_SO).$(V) -o $@.$(R) $? -lm $(MYLDFLAGS)
 
 $(GAFQC_T): $(GAFQC_O) $(GAFQ_A)
 	$(CC) -o $@ $(MYLDFLAGS) $(GAFQC_O) $(GAFQ_A) $(LIBS)
