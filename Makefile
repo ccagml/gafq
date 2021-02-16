@@ -60,7 +60,7 @@ $(GAFQ_T): $(GAFQ_O) $(GAFQ_A)
 	$(CC) -o $@ $(MYLDFLAGS) $(GAFQ_O) $(GAFQ_A) $(LIBS)
 
 $(GAFQ_SO): $(CORE_O) $(LIB_O)
-	$(CC) -shared -ldl -Wl,-soname,$(GAFQ_SO).$(V) -o $@.$(R) $? -lm $(MYLDFLAGS)
+	$(CC) -shared -ldl -Wl,-soname,$(GAFQ_SO) -o $@ $? -lm $(MYLDFLAGS)
 
 $(GAFQC_T): $(GAFQC_O) $(GAFQ_A)
 	$(CC) -o $@ $(MYLDFLAGS) $(GAFQC_O) $(GAFQ_A) $(LIBS)
