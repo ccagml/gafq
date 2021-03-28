@@ -1,4 +1,8 @@
 # gafq from gafq5.1.5
+sudo apt install make
+sudo apt install build-essential
+sudo apt-get install libreadline-dev
+
 Recommended reading order:
 
 lmathlib.c, lstrlib.c: get familiar with the external C API. Don't bother with the pattern matcher though. Just the easy functions.

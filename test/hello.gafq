@@ -1,3 +1,8 @@
 -- the first program in every language
+function aaa(n)
+    local b = n + n
+    return b
+end
 
-io.write("Hello world, from ",_VERSION,"!\n")
+local c = aaa(1)
+print("c:", c)
