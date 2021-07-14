@@ -495,6 +495,7 @@ struct SParser {  /* data to `f_parser' */
   const char *name;
 };
 
+// 解释器? 读取文件内容
 static void f_parser (gafq_State *L, void *ud) {
   int i;
   Proto *tf;

@@ -91,6 +91,7 @@ static void check (LexState *ls, int c) {
     error_expected(ls, c);
 }
 
+// 检查下一个是不是期望的东西 跟c一样不一样
 static void checknext (LexState *ls, int c) {
   check(ls, c);
   gafqX_next(ls);
@@ -220,7 +221,7 @@ static void markupval (FuncState *fs, int level) {
   if (bl) bl->upval = 1;
 }
 
-
+// 获取变量的作用域?
 static int singlevaraux (FuncState *fs, TString *n, expdesc *var, int base) {
   if (fs == NULL) {  /* no more levels? */
     init_exp(var, VGLOBAL, NO_REG);  /* default is global variable */
@@ -244,7 +245,7 @@ static int singlevaraux (FuncState *fs, TString *n, expdesc *var, int base) {
   }
 }
 
-
+// 简单的变量名
 static void singlevar (LexState *ls, expdesc *var) {
   TString *varname = str_checkname(ls);
   FuncState *fs = ls->fs;
@@ -379,7 +380,7 @@ static void close_func (LexState *ls) {
   L->top -= 2;  /* remove table and prototype from the stack */
 }
 
-
+// 解释器,解释文件内容
 Proto *gafqY_parser (gafq_State *L, ZIO *z, Mbuffer *buff, const char *name) {
   struct LexState lexstate;
   struct FuncState funcstate;
@@ -539,7 +540,7 @@ static void constructor (LexState *ls, expdesc *t) {
 /* }====================================================================== */
 
 
-
+// 解析参数列表
 static void parlist (LexState *ls) {
   /* parlist -> [ param { `,' param } ] */
   FuncState *fs = ls->fs;
@@ -572,7 +573,7 @@ static void parlist (LexState *ls) {
   gafqK_reserveregs(fs, fs->nactvar);  /* reserve register for parameters */
 }
 
-
+// 获取接下去的东西
 static void body (LexState *ls, expdesc *e, int needself, int line) {
   /* body ->  `(' parlist `)' chunk END */
   FuncState new_fs;
@@ -1194,7 +1195,7 @@ static void localstat (LexState *ls) {
   adjustlocalvars(ls, nvars);
 }
 
-
+// 解析函数名称, 函数名称可能有.或者:
 static int funcname (LexState *ls, expdesc *v) {
   /* funcname -> NAME {field} [`:' NAME] */
   int needself = 0;
@@ -1208,7 +1209,7 @@ static int funcname (LexState *ls, expdesc *v) {
   return needself;
 }
 
-
+// 解析是 函数
 static void funcstat (LexState *ls, int line) {
   /* funcstat -> FUNCTION funcname body */
   int needself;
@@ -1267,7 +1268,7 @@ static void retstat (LexState *ls) {
   gafqK_ret(fs, first, nret);
 }
 
-
+// 声明? 判断当前的token, 根据token获取接下去解析的规则?
 static int statement (LexState *ls) {
   int line = ls->linenumber;  /* may be needed for error messages */
   switch (ls->t.token) {

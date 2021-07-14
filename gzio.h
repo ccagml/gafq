@@ -14,7 +14,7 @@
 
 
 #define EOZ	(-1)			/* end of stream */
-
+// 看着是一个通用io的包装,读取文件
 typedef struct Zio ZIO;
 
 #define char2int(c)	cast(int, cast(unsigned char, (c)))

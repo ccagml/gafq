@@ -859,10 +859,10 @@ GAFQ_API int gafq_cpcall (gafq_State *L, gafq_CFunction func, void *ud) {
   return status;
 }
 
-
+// 可能是加载文件, 一开始打开gafq执行文件的时候,data传的是gafq执行文件的fopen指针, reader是getF
 GAFQ_API int gafq_load (gafq_State *L, gafq_Reader reader, void *data,
                       const char *chunkname) {
-  ZIO z;
+  ZIO z;  
   int status;
   gafq_lock(L);
   if (!chunkname) chunkname = "?";

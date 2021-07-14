@@ -330,7 +330,7 @@ static void read_string (LexState *ls, int del, SemInfo *seminfo) {
                                    gafqZ_bufflen(ls->buff) - 2);
 }
 
-
+// 读取下一个token, 词法分析
 static int glex (LexState *ls, SemInfo *seminfo) {
   gafqZ_resetbuffer(ls->buff);
   for (;;) {
@@ -342,9 +342,11 @@ static int glex (LexState *ls, SemInfo *seminfo) {
       }
       case '-': {
         next(ls);
+        // 判断是不是注释
         if (ls->current != '-') return '-';
         /* else is a comment */
         next(ls);
+        // 判断是不是长注释 --[[]]
         if (ls->current == '[') {
           int sep = skip_sep(ls);
           gafqZ_resetbuffer(ls->buff);  /* `skip_sep' may dirty the buffer */

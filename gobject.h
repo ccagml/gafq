@@ -192,9 +192,9 @@ typedef struct gafq_TValue {
 
 typedef TValue *StkId;  /* index to stack elements */
 
-
 /*
 ** String headers for string table
+// 可以通过 (const char *, (ts) + 1) 查看具体字符串内容 (char *)(varname + 1)
 */
 typedef union TString {
   L_Umaxalign dummy;  /* ensures maximum alignment for strings */
